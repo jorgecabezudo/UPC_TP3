@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ETNA.WebSite", "ProyectoETNA\ETNA.WebSite.csproj", "{6E62627A-5877-4B47-A484-E457DADC93AE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ETNA.BusinessLogic", "ETNA.BusinessLogic\ETNA.BusinessLogic.csproj", "{5752DE8F-9E2C-47A3-8C76-9C9D7206656C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ETNA.BusinessEntities", "ETNA.BusinessEntity\ETNA.BusinessEntities.csproj", "{1590B978-8CA3-4966-8C37-5DD6D7FDF04D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ETNA.DataAccess", "ETNA.DataAccess\ETNA.DataAccess.csproj", "{244396EF-1586-4C7F-BEC0-F3770C91A81B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6E62627A-5877-4B47-A484-E457DADC93AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E62627A-5877-4B47-A484-E457DADC93AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E62627A-5877-4B47-A484-E457DADC93AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E62627A-5877-4B47-A484-E457DADC93AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5752DE8F-9E2C-47A3-8C76-9C9D7206656C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5752DE8F-9E2C-47A3-8C76-9C9D7206656C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5752DE8F-9E2C-47A3-8C76-9C9D7206656C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5752DE8F-9E2C-47A3-8C76-9C9D7206656C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1590B978-8CA3-4966-8C37-5DD6D7FDF04D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1590B978-8CA3-4966-8C37-5DD6D7FDF04D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1590B978-8CA3-4966-8C37-5DD6D7FDF04D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1590B978-8CA3-4966-8C37-5DD6D7FDF04D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{244396EF-1586-4C7F-BEC0-F3770C91A81B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{244396EF-1586-4C7F-BEC0-F3770C91A81B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{244396EF-1586-4C7F-BEC0-F3770C91A81B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{244396EF-1586-4C7F-BEC0-F3770C91A81B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
