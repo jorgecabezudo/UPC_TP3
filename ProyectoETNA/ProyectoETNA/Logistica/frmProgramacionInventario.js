@@ -1,7 +1,13 @@
 ﻿var prefix = "#ContentPlaceHolder1_";
-
+/*MR-20150523 - INICIO*/
+window.onload = function () {
+    Buscar();
+}
+/*MR-20150523 - FIN*/
 function Nuevo() {
-
+    /*MR-20150523 - INICIO*/
+    document.getElementById('txtFechaProgramadaNuevo').value = "";
+    /*MR-20150523 - FIN*/
     $("#txtFechaProgramadaNuevo").datepicker({
         defaultDate: "+1w"
     });
@@ -77,18 +83,27 @@ function Registrar() {
         RegistrarInventarioProgramadoEventHandler(arg, function (result, context) {
             if (result == 0) {
                 document.getElementById('mensaje').innerHTML = "Programación insertada correctamente";
-
                 $('#modalMensaje').modal('show');
-
                 $('#modalNuevo').modal('hide');
 
                 Buscar();
-            } else {
-                document.getElementById('mensaje').innerHTML = "Error al insertar programación";
-
-                $('#modalMensaje').modal('show');
-
+            }
+                /*MR-20150523 - INICIO*/
+            else if (result == 2) {
+                document.getElementById('mensaje').innerHTML = "Ya tiene asignado un Inventario de este tipo en la fecha seleccionada";
                 $('#modalNuevo').modal('hide');
+                $('#modalMensaje').modal('show');                
+            }
+            else if (result == 3) {
+                document.getElementById('mensaje').innerHTML = "Ingrese la fecha para la Programación de Inventario";
+                $('#modalNuevo').modal('hide');
+                $('#modalMensaje').modal('show');
+            }
+                /*MR-20150523 - FIN*/
+            else {
+                document.getElementById('mensaje').innerHTML = "Error al insertar programación";
+                $('#modalNuevo').modal('hide');
+                $('#modalMensaje').modal('show');
             }
         });
 
@@ -125,7 +140,17 @@ function Actualizar() {
                 $('#modalEdit').modal('hide');
 
                 Buscar();
-            } else {
+            }
+                /*MR-20150523 - INICIO*/
+            else if (result == 2) {
+                document.getElementById('mensaje').innerHTML = "Ya tiene asignado un Inventario de este tipo en la fecha seleccionada";
+           
+                $('#modalMensaje').modal('show');
+                $('#modalEdit').modal('hide');
+            }
+                /*MR-20150523 - FIN*/
+
+            else {
                 document.getElementById('mensaje').innerHTML = "Error al actualizar programación";
 
                 $('#modalMensaje').modal('show');

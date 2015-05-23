@@ -14,6 +14,7 @@ namespace ProyectoETNA.Logistica
 {
     public partial class frmProgramacionInventario : System.Web.UI.Page
     {
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
@@ -95,16 +96,37 @@ namespace ProyectoETNA.Logistica
             try
             {
                 Hashtable data = JsonSerializer.FromJson<Hashtable>(arg);
-                ProgramacionInventarioBE oBe = new ProgramacionInventarioBE()
+                if (data["DT_fechaProgramada"].ToString() != null && data["DT_fechaProgramada"].ToString()!="")
                 {
-                    Dt_fechaProgramada = DateTime.Parse(data["DT_fechaProgramada"].ToString()),
-                    In_tipoInventario = int.Parse(data["IN_tipoInventario"].ToString()),
-                    Ch_Cod_Usuario = data["CH_codUsuario"].ToString(),
-                    In_idAlmacen = int.Parse(data["IN_almacen"].ToString())
-                };
+                    ProgramacionInventarioBE oBe = new ProgramacionInventarioBE()
+                    {
+                        Dt_fechaProgramada = DateTime.Parse(data["DT_fechaProgramada"].ToString()),
+                        In_tipoInventario = int.Parse(data["IN_tipoInventario"].ToString()),
+                        Ch_Cod_Usuario = data["CH_codUsuario"].ToString(),
+                        In_idAlmacen = int.Parse(data["IN_almacen"].ToString())
+                    };
+                    /*MR-20150523 - INICIO*/
 
-                result = new ProgramacionInventarioBL().RegistrarInventariosProgramados(oBe).ToString();
-
+                    List<ProgramacionInventarioBE> listInventarios = (List<ProgramacionInventarioBE>)Session["lbeInventarios"];
+                    bool existe = false;
+                    foreach (ProgramacionInventarioBE obeP in listInventarios)
+                    {
+                        if (obeP.In_idAlmacen == oBe.In_idAlmacen && obeP.Dt_fechaProgramada == oBe.Dt_fechaProgramada
+                            && obeP.In_tipoInventario == oBe.In_tipoInventario)
+                        {
+                            existe = true;
+                            break;
+                        }
+                    }
+                    if (existe == false)
+                    {
+                        result = new ProgramacionInventarioBL().RegistrarInventariosProgramados(oBe).ToString();
+                    }
+                    else { result = "2"; }
+                    /*MR-20150523 - FIN*/
+                    //  result = new ProgramacionInventarioBL().RegistrarInventariosProgramados(oBe).ToString();
+                }
+                else { result = "3"; }
             }
             catch (Exception ex)
             {
@@ -127,8 +149,26 @@ namespace ProyectoETNA.Logistica
                     In_tipoInventario = int.Parse(data["IN_tipoInventario"].ToString()),
                     In_idAlmacen = int.Parse(data["IN_almacen"].ToString())
                 };
+                /*MR-20150523 - INICIO*/
+                List<ProgramacionInventarioBE> listInventarios = (List<ProgramacionInventarioBE>)Session["lbeInventarios"];
+                bool existe = false;
+                foreach (ProgramacionInventarioBE obeP in listInventarios)
+                {
+                    if (obeP.In_idAlmacen == oBe.In_idAlmacen && obeP.Dt_fechaProgramada == oBe.Dt_fechaProgramada
+                        && obeP.In_tipoInventario == oBe.In_tipoInventario)
+                    {
+                        existe = true;
+                        break;
+                    }
+                }
+                if (existe == false)
+                {
+                    result = new ProgramacionInventarioBL().ActualizarInventariosProgramados(oBe).ToString();
+                }
+                else { result = "2"; }
+                /*MR-20150523 - FIN*/
+                //  result = new ProgramacionInventarioBL().ActualizarInventariosProgramados(oBe).ToString();
 
-                result = new ProgramacionInventarioBL().ActualizarInventariosProgramados(oBe).ToString();
 
             }
             catch (Exception ex)
@@ -172,9 +212,8 @@ namespace ProyectoETNA.Logistica
                     In_tipoInventario = int.Parse(data["IN_tipoInventario"].ToString()),
                     In_idAlmacen = int.Parse(data["IN_almacen"].ToString())
                 };
-
                 List<ProgramacionInventarioBE> listInventarios = new ProgramacionInventarioBL().ObtenerInventariosProgramados(oBe);
-
+                Session["lbeInventarios"] = listInventarios;
                 gvInventarios.DataSource = listInventarios;
                 gvInventarios.DataBind();
 

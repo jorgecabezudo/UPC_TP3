@@ -19,7 +19,7 @@ namespace ETNA.DataAccess
 
         private string cadenaConexion;
         private string providerName;
-        private DbProviderFactory factoty;
+        private DbProviderFactory factory;
         /// <summary>
         /// Constructor de la clase
         /// </summary>
@@ -30,11 +30,11 @@ namespace ETNA.DataAccess
             //Inicializamos la cadena de conxion a la base de datos
             cadenaConexion = _cadenaConexion;
             providerName = provider;
-            factoty = SqlClientFactory.Instance;
+            factory = SqlClientFactory.Instance;
             switch (providerName)
             {
                 case "System.Data.SqlClient":
-                    factoty = SqlClientFactory.Instance;
+                    factory = SqlClientFactory.Instance;
                     break;
             }
 
@@ -47,7 +47,7 @@ namespace ETNA.DataAccess
         /// <returns></returns>
         public DbCommand GetStoredProcCommand(String spNombre)
         {
-            DbCommand cmd = factoty.CreateCommand();
+            DbCommand cmd = factory.CreateCommand();
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.CommandText = spNombre;
             return cmd;
@@ -61,7 +61,7 @@ namespace ETNA.DataAccess
         /// <returns></returns>
         public DbCommand GetCommand(string str_cmd, CommandType typo)
         {
-            DbCommand cmd = factoty.CreateCommand();
+            DbCommand cmd = factory.CreateCommand();
             cmd.CommandType = typo;
             cmd.CommandText = str_cmd;
 
@@ -172,7 +172,7 @@ namespace ETNA.DataAccess
             {
                 cmd.Connection = cn;
                 cmd.CommandTimeout = Convert.ToInt32(WebConfigurationManager.AppSettings["ValorTimeOut"]);
-                DbDataAdapter da = factoty.CreateDataAdapter();
+                DbDataAdapter da = factory.CreateDataAdapter();
                 da.SelectCommand = cmd;
                 da.Fill(ds);
             }
@@ -183,14 +183,14 @@ namespace ETNA.DataAccess
 
         private DbConnection CreaConnexion()
         {
-            DbConnection cn = factoty.CreateConnection();
+            DbConnection cn = factory.CreateConnection();
             cn.ConnectionString = cadenaConexion;
             return cn;
         }
 
         public void AddInParameter(IDbCommand cmd, string parNombre, DbType tipo, object valor)
         {
-            DbParameter par = factoty.CreateParameter();
+            DbParameter par = factory.CreateParameter();
             par.DbType = tipo;
             par.ParameterName = parNombre;
             par.Value = valor;
@@ -199,7 +199,7 @@ namespace ETNA.DataAccess
         }
         public void AddInParameter(IDbCommand cmd, string parNombre, object valor)
         {
-            DbParameter par = factoty.CreateParameter();
+            DbParameter par = factory.CreateParameter();
             par.ParameterName = parNombre;
             par.Value = valor;
             par.Direction = ParameterDirection.Input;
@@ -214,7 +214,7 @@ namespace ETNA.DataAccess
         /// <param name="valor">Valor del parametro</param>
         public void AddOuputParameter(IDbCommand cmd, string parNombre, DbType tipo, object valor)
         {
-            DbParameter par = factoty.CreateParameter();
+            DbParameter par = factory.CreateParameter();
             par.DbType = tipo;
             par.ParameterName = parNombre;
             par.Value = valor;
@@ -224,7 +224,7 @@ namespace ETNA.DataAccess
         public void AddOuputParameter(IDbCommand cmd, string parNombre, object valor)
         {
 
-            DbParameter par = factoty.CreateParameter();
+            DbParameter par = factory.CreateParameter();
             par.ParameterName = parNombre;
             par.Value = valor;
             par.Direction = ParameterDirection.Output;
@@ -232,7 +232,7 @@ namespace ETNA.DataAccess
         }
         public void AddOuputParameter(IDbCommand cmd, string parNombre, DbType tipo, int size, object valor)
         {
-            DbParameter par = factoty.CreateParameter();
+            DbParameter par = factory.CreateParameter();
             par.DbType = tipo;
             par.ParameterName = parNombre;
             par.Size = size;
