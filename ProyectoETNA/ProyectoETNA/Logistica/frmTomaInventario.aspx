@@ -39,7 +39,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="table-responsive">
-                            <div id="c">
+                            <div id="divgvDetalle">
                                 <asp:GridView ID="gvDetalle" AutoGenerateColumns="False" runat="server" CssClass="table table-striped table-bordered table-hover">
                                     <Columns>
                                         <asp:TemplateField HeaderText="Producto">
@@ -122,7 +122,8 @@
                         <div class="col-md-4">
                             <div class="form-group">
                                 <input type="hidden" id="txtDetInventario" />
-                                <input type="text" class="form-control" id="txtCantidad" />
+                                <input type="number" class="form-control" id="txtCantidad" min="1"  required/>
+                                <input type="text" id="lblError" style="color:red; display:none; width:200px"  value="* Por favor ingrese la Cantidad"/> 
                             </div>
                         </div>
                         <div class="col-md-5">
