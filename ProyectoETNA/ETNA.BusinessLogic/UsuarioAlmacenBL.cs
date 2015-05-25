@@ -16,9 +16,9 @@ namespace ETNA.BusinessLogic
             objUsuarioAlmacen = new UsuarioAlmacenDA();
         }
 
-        public List<UsuarioAlmacenBE> ObtenerAlmacen()
+        public List<UsuarioAlmacenBE> ObtenerAlmacen(string cod)
         {
-            return objUsuarioAlmacen.ObtenerAlmacen();
+            return objUsuarioAlmacen.ObtenerAlmacen(cod);
         }
     }
 }

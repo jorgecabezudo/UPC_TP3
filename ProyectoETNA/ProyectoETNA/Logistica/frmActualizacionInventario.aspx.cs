@@ -9,6 +9,7 @@ using EasyCallback;
 using ETNA.BusinessEntity;
 using ETNA.BusinessLogic;
 using Json;
+using ProyectoETNA.MasterPage;
 
 namespace ProyectoETNA.Logistica
 {
@@ -55,7 +56,9 @@ namespace ProyectoETNA.Logistica
         {
             try
             {
-                ddlAlmacen.DataSource = new UsuarioAlmacenBL().ObtenerAlmacen();
+                string cod = LoginInfo.CodigoUsuario;
+
+                ddlAlmacen.DataSource = new UsuarioAlmacenBL().ObtenerAlmacen(cod);
                 ddlAlmacen.DataValueField = "In_idAlmacen";
                 ddlAlmacen.DataTextField = "Vc_descripcionAlmacen";
                 ddlAlmacen.DataBind();

@@ -20,50 +20,63 @@
 </head>
 <body>
     <div class="container">
-        <div class="row header-master">
-            <div class="col-md-12">
-                <img src="../img/logo.png" class="img-responsive imagen-logo" alt="" />
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12 row-col">
-                <nav class="navbar navbar-default barra-menu">
-                    <div class="container-fluid">
-                        <!-- Brand and toggle get grouped for better mobile display -->
-                        <div class="navbar-header">
-                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                                <span class="sr-only">Toggle navigation</span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                            </button>
+        <form id="Form2" runat="server">
+            <div class="row header-master">
+                <div class="col-md-6">
+                    <img src="../img/logo.png" class="img-responsive imagen-logo" alt="" />
+                </div>
+                <div class="col-md-6">
+                    <div class="pull-right">
+                        <div class="form-group">
+                            <asp:Button runat="server" CssClass="btn btn-info pull-right" Text="Cerrar Sesion" OnClick="btnCerrarSesion_Click" />
+                            <br />
+                            <br />
+                            <asp:Label ID="lblNombreUsuario" runat="server" CssClass="label-header"></asp:Label>
+                            <br />
+                            <asp:Label ID="lblFecha" runat="server" CssClass="label-header"></asp:Label>
                         </div>
-                        <!-- Collect the nav links, forms, and other content for toggling -->
-                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                            <ul class="nav navbar-nav navbar-left text-menu">
-                                <li style="border-right: 1px solid #EFEFEF"><a href="../Logistica/frmActualizacionInventario.aspx">Actualizacion Inventario</a></li>
-                                <li style="border-right: 1px solid #EFEFEF"><a href="../Logistica/frmProgramacionInventario.aspx">Programacion Inventario</a></li>
-                                <li style="border-right: 1px solid #EFEFEF"><a href="../Logistica/frmConsultaMovimientosAlmacen.aspx">Consulta Movimientos Almacen</a></li>
-                                <li style="border-right: 1px solid #EFEFEF"><a href="../Logistica/frmTomaInventario.aspx">Toma Inventario</a></li>
-                            </ul>
-                        </div>
-                        <!-- /.navbar-collapse -->
                     </div>
-                    <!-- /.container-fluid -->
-                </nav>
+                </div>
             </div>
-        </div>
-        <form id="Form1" runat="server">
+            <div class="row">
+                <div class="col-md-12 row-col">
+                    <nav class="navbar navbar-default barra-menu">
+                        <div class="container-fluid">
+                            <!-- Brand and toggle get grouped for better mobile display -->
+                            <div class="navbar-header">
+                                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                                    <span class="sr-only">Toggle navigation</span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>
+                            </div>
+                            <!-- Collect the nav links, forms, and other content for toggling -->
+                            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                                <ul class="nav navbar-nav navbar-left text-menu">
+                                    <li style="border-right: 1px solid #EFEFEF"><a href="../Logistica/frmActualizacionInventario.aspx">Actualizacion Inventario</a></li>
+                                    <li style="border-right: 1px solid #EFEFEF"><a href="../Logistica/frmProgramacionInventario.aspx">Programacion Inventario</a></li>
+                                    <li style="border-right: 1px solid #EFEFEF"><a href="../Logistica/frmConsultaMovimientosAlmacen.aspx">Consulta Movimientos Almacen</a></li>
+                                    <li style="border-right: 1px solid #EFEFEF"><a href="../Logistica/frmTomaInventario.aspx">Toma Inventario</a></li>
+                                </ul>
+                            </div>
+                            <!-- /.navbar-collapse -->
+                        </div>
+                        <!-- /.container-fluid -->
+                    </nav>
+                </div>
+            </div>
             <cc1:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server" AsyncPostBackTimeout="36000">
             </cc1:ToolkitScriptManager>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
-        </form>
-        <div class="row footer-master">
-            <div class="col-md-12">
-                <label class="label-footer">Copyright © 2015 ETNA S.A. <span>Todos los derechos reservados.</span></label>
+
+            <div class="row footer-master">
+                <div class="col-md-12">
+                    <label class="label-footer">Copyright © 2015 ETNA S.A. <span>Todos los derechos reservados.</span></label>
+                </div>
             </div>
-        </div>
+        </form>
     </div>
 
     <script src="../js/jquery-1.11.3.min.js"></script>

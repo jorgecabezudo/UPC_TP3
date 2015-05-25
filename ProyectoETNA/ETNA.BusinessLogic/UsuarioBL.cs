@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using ETNA.DataAccess;
+using ETNA.BusinessEntity;
 
 namespace ETNA.BusinessLogic
 {
@@ -15,9 +16,14 @@ namespace ETNA.BusinessLogic
             objUsuario = new UsuarioDA();
         }
 
-        public Int32 ValidarUsuario(string usuario, string password)
+        public string ValidarUsuario(string usuario, string password)
         {
             return objUsuario.ValidarUsuario(usuario, password);
+        }
+
+        public PersonaBE ObtenerInfoUsuarioLogin(string codigo)
+        {
+            return objUsuario.ObtenerInfoUsuarioLogin(codigo);
         }
     }
 }

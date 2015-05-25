@@ -92,7 +92,7 @@ function Registrar() {
             else if (result == 2) {
                 document.getElementById('mensaje').innerHTML = "Ya tiene asignado un Inventario de este tipo en la fecha seleccionada";
                 $('#modalNuevo').modal('hide');
-                $('#modalMensaje').modal('show');                
+                $('#modalMensaje').modal('show');
             }
             else if (result == 3) {
                 document.getElementById('mensaje').innerHTML = "Ingrese la fecha para la Programación de Inventario";
@@ -124,7 +124,7 @@ function Actualizar() {
 
         var data =
                 {
-                    IN_idProgInventario : idProgInventario,
+                    IN_idProgInventario: idProgInventario,
                     DT_fechaProgramada: fechaProgramada,
                     IN_tipoInventario: tipoInventario,
                     IN_almacen: almacen
@@ -144,7 +144,7 @@ function Actualizar() {
                 /*MR-20150523 - INICIO*/
             else if (result == 2) {
                 document.getElementById('mensaje').innerHTML = "Ya tiene asignado un Inventario de este tipo en la fecha seleccionada";
-           
+
                 $('#modalMensaje').modal('show');
                 $('#modalEdit').modal('hide');
             }

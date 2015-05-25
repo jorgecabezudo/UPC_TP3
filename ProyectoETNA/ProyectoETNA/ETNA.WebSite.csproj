@@ -78,6 +78,7 @@
     <Content Include="frmBienvenida.aspx" />
     <Content Include="frmLogin.aspx" />
     <Content Include="img\bateria.png" />
+    <Content Include="img\bienvenida.jpg" />
     <Content Include="img\logo.png" />
     <Content Include="js\bootstrap.js" />
     <Content Include="js\bootstrap.min.js" />

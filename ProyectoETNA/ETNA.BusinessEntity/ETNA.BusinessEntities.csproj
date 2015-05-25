@@ -42,6 +42,7 @@
     <Compile Include="DetalleInventarioBE.cs" />
     <Compile Include="InventarioBE.cs" />
     <Compile Include="MovimientosAlmacenBE.cs" />
+    <Compile Include="PersonaBE.cs" />
     <Compile Include="ProgramacionInventarioBE.cs" />
     <Compile Include="TipoBE.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

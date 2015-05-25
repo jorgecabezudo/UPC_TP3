@@ -10,8 +10,18 @@
 
 .header-master {
     background-color: #005EA9;
-	height: 90px;
-	padding-top: 10px;
+	padding-top: 5px;
+}
+
+.label-header {
+	color: #fff;
+}
+
+.imagen-logo {
+	width: 280px;
+	height: auto;
+	padding-left: 5%;
+	padding-bottom: 5px;
 }
 
 .barra-menu {
@@ -19,12 +29,6 @@
 	border-color:#3673AA; 
 	min-height:40px !important; 
 	border-radius:0;
-}
-
-.imagen-logo {
-	width: 280px;
-	height: auto;
-	padding-left: 5%;
 }
 
 .row-col {

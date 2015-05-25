@@ -18,17 +18,10 @@ namespace ProyectoETNA
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            //Response.Redirect("frmBienvenida.aspx");
-
-            /*if (Request.QueryString["ReturnUrl"] != null)
+            if (Request.QueryString["ReturnUrl"] != null)
             {
                 if (Session["LogUsuario"] != null) FormsAuthentication.RedirectFromLoginPage(Session["LogUsuario"].ToString(), false);
             }
-            else
-            {
-                //FormsAuthentication.SetAuthCookie(Session["logUser"].ToString(), false);
-                //Response.Redirect("~/Member.aspx", false);
-            }*/
         }
 
         protected override void OnInit(EventArgs e)
@@ -44,9 +37,11 @@ namespace ProyectoETNA
             try
             {
                 Hashtable entity = JsonSerializer.FromJson<Hashtable>(argument);
-                Int32 result = new UsuarioBL().ValidarUsuario(entity["usuario"].ToString(), entity["password"].ToString());
-                if (result > 0)
+                string result = new UsuarioBL().ValidarUsuario(entity["usuario"].ToString(), entity["password"].ToString());
+                if (result != "0")
                 {
+                    Session["LogUsuario"] = new UsuarioBL().ObtenerInfoUsuarioLogin(result);
+
                     return JsonSerializer.ToJson(new
                     {
                         resultado = "ok",

@@ -9,6 +9,7 @@ using EasyCallback;
 using ETNA.BusinessEntity;
 using ETNA.BusinessLogic;
 using Json;
+using ProyectoETNA.MasterPage;
 
 namespace ProyectoETNA.Logistica
 {
@@ -34,6 +35,16 @@ namespace ProyectoETNA.Logistica
         {
             CargarTipoInventarios();
             CargarAlmacenes();
+            CargarResponsable();
+        }
+
+        protected void CargarResponsable()
+        {
+            txtResponsableNuevo.Text = LoginInfo.NombreUsuario;
+            idResponsableNuevo.Value = LoginInfo.CodigoUsuario;
+            
+            txtResponsableEdit.Text = LoginInfo.NombreUsuario;
+            idResponsableEdit.Value = LoginInfo.CodigoUsuario;
         }
 
         protected void CargarTipoInventarios()
@@ -67,17 +78,19 @@ namespace ProyectoETNA.Logistica
         {
             try
             {
-                ddlAlmacen.DataSource = new UsuarioAlmacenBL().ObtenerAlmacen();
+                string cod = LoginInfo.CodigoUsuario;
+
+                ddlAlmacen.DataSource = new UsuarioAlmacenBL().ObtenerAlmacen(cod);
                 ddlAlmacen.DataValueField = "In_idAlmacen";
                 ddlAlmacen.DataTextField = "Vc_descripcionAlmacen";
                 ddlAlmacen.DataBind();
 
-                ddlAlmacenNuevo.DataSource = new UsuarioAlmacenBL().ObtenerAlmacen();
+                ddlAlmacenNuevo.DataSource = new UsuarioAlmacenBL().ObtenerAlmacen(cod);
                 ddlAlmacenNuevo.DataValueField = "In_idAlmacen";
                 ddlAlmacenNuevo.DataTextField = "Vc_descripcionAlmacen";
                 ddlAlmacenNuevo.DataBind();
 
-                ddlAlmacenEdit.DataSource = new UsuarioAlmacenBL().ObtenerAlmacen();
+                ddlAlmacenEdit.DataSource = new UsuarioAlmacenBL().ObtenerAlmacen(cod);
                 ddlAlmacenEdit.DataValueField = "In_idAlmacen";
                 ddlAlmacenEdit.DataTextField = "Vc_descripcionAlmacen";
                 ddlAlmacenEdit.DataBind();

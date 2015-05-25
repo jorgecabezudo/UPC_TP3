@@ -178,8 +178,8 @@
                             </div>
                             <div class="form-group">
                                 <label>Responsable</label>
-                                <input type="text" class="form-control form-read" id="txtResponsableNuevo" readonly="true" value="Administrador"/>
-                                <input type="hidden" id="idResponsableNuevo" value="1"/>
+                                <asp:TextBox ID="txtResponsableNuevo" runat="server" ReadOnly="true" CssClass="form-control form-read"></asp:TextBox>
+                                <asp:HiddenField ID="idResponsableNuevo" runat="server"></asp:HiddenField>
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -230,8 +230,8 @@
                             </div>
                             <div class="form-group">
                                 <label>Responsable</label>
-                                <input type="text" class="form-control form-read" id="txtResponsableEdit" readonly="true" value="Administrador"/>
-                                <input type="hidden" id="idResponsableEdit" value="1"/>
+                                <asp:TextBox ID="txtResponsableEdit" runat="server" ReadOnly="true" CssClass="form-control form-read"></asp:TextBox>
+                                <asp:HiddenField ID="idResponsableEdit" runat="server"></asp:HiddenField>
                             </div>
                         </div>
                         <div class="col-md-6">

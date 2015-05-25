@@ -49,6 +49,24 @@ namespace ProyectoETNA.Logistica {
         protected global::System.Web.UI.WebControls.DropDownList ddlTipoInventarioNuevo;
         
         /// <summary>
+        /// Control txtResponsableNuevo.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtResponsableNuevo;
+        
+        /// <summary>
+        /// Control idResponsableNuevo.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField idResponsableNuevo;
+        
+        /// <summary>
         /// Control ddlAlmacenNuevo.
         /// </summary>
         /// <remarks>
@@ -65,6 +83,24 @@ namespace ProyectoETNA.Logistica {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlTipoInventarioEdit;
+        
+        /// <summary>
+        /// Control txtResponsableEdit.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtResponsableEdit;
+        
+        /// <summary>
+        /// Control idResponsableEdit.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField idResponsableEdit;
         
         /// <summary>
         /// Control ddlAlmacenEdit.
