@@ -64,6 +64,14 @@
     cursor: default !important;
 }
 
+.label-validar-m{
+    font-weight: normal;
+    color: red;
+    font-size: 13px;
+    margin-left: 12px;
+    display: none;
+}
+
 @media(max-width:600px) {
 	.label-footer span {
 		display:none;

@@ -76,19 +76,56 @@ function ObtenerDetalle(id) {
 function Editar(id) {
 
     $('#txtDetInventario').val(id);
-    var txtCant = document.getElementById('txtCantidad');
-    txtCant.value = '';
-    /*MR-20150523 - INICIO*/
- document.getElementById('lblError').style.display = "none";
-    /*MR-20150523 - FIN*/
+    $('#txtCantidad').val("1");
+
+    document.getElementById('txtCantidad').style.border = "1px solid #ccc";
+    document.getElementById('lblCantidad').style.display = "none";
+
     $('#modalEdit').modal('show');
 }
 
+function ValidarCantidad() {
+
+    var txtCantidad = document.getElementById('txtCantidad');
+    var lblCantidad = document.getElementById('lblCantidad');
+
+    if (txtCantidad.value.length == 0) {
+
+        lblCantidad.innerHTML = "Ingrese cantidad";
+        txtCantidad.style.border = "1px solid red";
+        lblCantidad.style.display = "block";
+
+        return true;
+    } else {
+
+        if (isNaN(txtCantidad.value)) {
+            lblCantidad.innerHTML = "Ingrese solo números";
+            txtCantidad.style.border = "1px solid red";
+            lblCantidad.style.display = "block";
+
+            return true;
+        } else {
+
+            if (txtCantidad.value < 1) {
+
+                lblCantidad.innerHTML = "Ingrese cantidad mayor a 0";
+                txtCantidad.style.border = "1px solid red";
+                lblCantidad.style.display = "block";
+
+                return true;
+            }
+        }
+    }
+
+    txtCantidad.style.border = "1px solid #ccc";
+    lblCantidad.style.display = "none";
+    
+    return false;
+}
+
 function Aceptar() {
-    /*MR-20150523 - INICIO*/
-    var txtCant = document.getElementById('txtCantidad');
-    if (txtCant.value != '') {
-        /*MR-20150523 - FIN*/
+
+    if (!ValidarCantidad()) {
         try {
 
             var data =
@@ -119,12 +156,6 @@ function Aceptar() {
             throw e;
         }
     }
-    /*MR-20150523 - INICIO*/
-
-
-    else {
-        document.getElementById('lblError').style.display = "block";    }
-/*MR-20150523 - FIN*/
     return false;
 }
 

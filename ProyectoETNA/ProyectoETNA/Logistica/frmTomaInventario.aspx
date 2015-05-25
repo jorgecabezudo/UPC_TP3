@@ -116,14 +116,14 @@
                         </div>
                         <div class="col-md-2">
                             <div class="form-group">
-                                <label>Cantidad</label>
+                                <label>Cantidad :</label>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
                                 <input type="hidden" id="txtDetInventario" />
-                                <input type="number" class="form-control" id="txtCantidad" min="1"  required/>
-                                <input type="text" id="lblError" style="color:red; display:none; width:200px"  value="* Por favor ingrese la Cantidad"/> 
+                                <input type="text" class="form-control" id="txtCantidad" placeholder="Cantidad"/>
+                                <label class="label-validar-m" id="lblCantidad">Ingrese Cantidad</label>
                             </div>
                         </div>
                         <div class="col-md-5">

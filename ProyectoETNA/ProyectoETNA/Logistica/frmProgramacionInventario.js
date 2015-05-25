@@ -68,7 +68,7 @@ function Registrar() {
     try {
         var fechaProgramada = $('#txtFechaProgramadaNuevo').val();
         var tipoInventario = $(prefix + 'ddlTipoInventarioNuevo').val();
-        var responsable = $('#idResponsableNuevo').val();
+        var responsable = $(prefix + 'idResponsableNuevo').val();
         var almacen = $(prefix + 'ddlAlmacenNuevo').val();
 
         var data =

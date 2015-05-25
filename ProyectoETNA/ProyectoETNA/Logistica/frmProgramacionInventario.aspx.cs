@@ -109,7 +109,7 @@ namespace ProyectoETNA.Logistica
             try
             {
                 Hashtable data = JsonSerializer.FromJson<Hashtable>(arg);
-                if (data["DT_fechaProgramada"].ToString() != null && data["DT_fechaProgramada"].ToString()!="")
+                if (data["DT_fechaProgramada"].ToString() != "")
                 {
                     ProgramacionInventarioBE oBe = new ProgramacionInventarioBE()
                     {

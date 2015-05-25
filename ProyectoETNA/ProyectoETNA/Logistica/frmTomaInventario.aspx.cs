@@ -46,6 +46,8 @@ namespace ProyectoETNA.Logistica
                 ddlAlmacen.DataValueField = "In_idAlmacen";
                 ddlAlmacen.DataTextField = "Vc_descripcionAlmacen";
                 ddlAlmacen.DataBind();
+
+                ddlAlmacen.Items.Insert(0, new ListItem("------ Seleccione ------", "0"));
             }
             catch (Exception ex)
             {
@@ -57,10 +59,12 @@ namespace ProyectoETNA.Logistica
         {
             try
             {
+                string cod = LoginInfo.CodigoUsuario;
+
                 Hashtable data = JsonSerializer.FromJson<Hashtable>(arg);
                 InventarioBE oBe = new InventarioBE()
                 {
-                    Ch_cod_Usuario = "1",
+                    Ch_cod_Usuario = cod,
                     In_idAlmacen = int.Parse(data["IN_almacen"].ToString())
                 };
 
