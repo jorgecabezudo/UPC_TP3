@@ -70,16 +70,21 @@
     <Content Include="css\bootstrap-theme.min.css" />
     <Content Include="css\bootstrap.css" />
     <Content Include="css\bootstrap.min.css" />
+    <Content Include="css\font-awesome.css" />
+    <Content Include="css\font-awesome.min.css" />
     <Content Include="css\jquery-ui-1.10.4.custom.css" />
     <Content Include="css\jquery-ui-1.10.4.custom.min.css" />
     <Content Include="css\login.css" />
     <Content Include="css\style.css" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="frmBienvenida.aspx" />
     <Content Include="frmLogin.aspx" />
     <Content Include="img\bateria.png" />
+    <Content Include="img\baterias.png" />
     <Content Include="img\bienvenida.jpg" />
     <Content Include="img\logo.png" />
+    <Content Include="img\power.png" />
     <Content Include="img\user.png" />
     <Content Include="js\bootstrap.js" />
     <Content Include="js\bootstrap.min.js" />
@@ -97,6 +102,9 @@
     <Content Include="Logistica\frmProgramacionInventario.js" />
     <Content Include="Logistica\frmTomaInventario.aspx" />
     <Content Include="Logistica\frmTomaInventario.js" />
+    <Content Include="SQL\SP_DOCUMENTOPENDIENTE_LISTAR.sql" />
+    <Content Include="SQL\SP_OBTENER_DOCUMENTOPENDIENTE.sql" />
+    <Content Include="SQL\Update.sql" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -170,6 +178,11 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="SQL\backup_etna.bak" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\FontAwesome.otf" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

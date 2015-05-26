@@ -1,5 +1,9 @@
 ﻿var prefix = "#ContentPlaceHolder1_";
 
+window.onload = function () {
+    Buscar();
+}
+
 function Nuevo() {
     $('#modalNuevo').modal('show');
     return false;
@@ -41,7 +45,7 @@ function Buscar() {
     return false;
 }
 
-//$(document).ready(function () {
+function AtenderDocumento(idDocPendiente) {
 
-//    Buscar();
-//});
+    location.href = 'frmAtenderMovimientosAlmacen.aspx?id=' + idDocPendiente;
+}

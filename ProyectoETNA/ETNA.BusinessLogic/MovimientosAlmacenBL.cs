@@ -20,5 +20,10 @@ namespace ETNA.BusinessLogic
         {
             return objMovimientosAlmacen.ObtenerMovimientosAlmacen(oBe);
         }
+
+        public MovimientosAlmacenBE ObtenerDocumentoPendiente(int cod)
+        {
+            return objMovimientosAlmacen.ObtenerDocumentoPendiente(cod);
+        }
     }
 }

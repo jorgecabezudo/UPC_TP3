@@ -27,6 +27,7 @@ namespace ETNA.DataAccess
                 while (dr.Read())
                 {
                     objMovimientosAlmacen = new MovimientosAlmacenBE();
+                    objMovimientosAlmacen.In_idDocPendiente = dr.GetInt32(dr.GetOrdinal("idDocPendiente"));
                     objMovimientosAlmacen.Ch_numeroDocPendiente = dr.GetString(dr.GetOrdinal("numeroDocPendiente"));
                     objMovimientosAlmacen.Dt_fechaDocumento = dr.GetDateTime(dr.GetOrdinal("fechaDocumento"));
                     objMovimientosAlmacen.Vc_tipoDocumentoPendiente = dr.GetString(dr.GetOrdinal("descripcionDocumentoPendiente"));
@@ -37,6 +38,28 @@ namespace ETNA.DataAccess
                 }
             }
             return listMovimientosAlmacen;
+        }
+
+        public MovimientosAlmacenBE ObtenerDocumentoPendiente(int cod)
+        {
+            MovimientosAlmacenBE objDocumento = new MovimientosAlmacenBE();
+
+            Dictionary<string, object> parameter = new Dictionary<string, object>();
+
+            parameter.Add("@IN_IDDOCPENDIENTE",cod);
+
+            using (IDataReader dr = SqlHelper.Instance.ExecuteReader("SP_OBTENER_DOCUMENTOPENDIENTE", parameter))
+            {
+                if (dr.Read())
+                {
+                    objDocumento.In_idDocPendiente = cod;
+                    objDocumento.Vc_tipoMovimiento = dr.GetString(dr.GetOrdinal("tipoMovimiento"));
+                    objDocumento.Vc_situacionAtencion = dr.GetString(dr.GetOrdinal("situacionAtencion"));
+                    objDocumento.Vc_almacen = dr.GetString(dr.GetOrdinal("almacen"));
+                    objDocumento.Dt_fechaDocumento = dr.GetDateTime(dr.GetOrdinal("fechaDocumento"));
+                }
+            }
+            return objDocumento;
         }
     }
 }

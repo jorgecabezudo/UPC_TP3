@@ -30,18 +30,18 @@
                             </asp:DropDownList>
                         </div>
                     </div>
-                    <div class="col-md-2">
+                    <div class="col-md-1">
                     </div>
                     <div class="col-md-2">
                         <div class="form-group">
                             <button class="btn btn-primary" onclick="return Buscar()" style="width: 100%;">BUSCAR</button>
                         </div>
                     </div>
-                    <div class="col-md-2">
+                    <%--<div class="col-md-2">
                         <div class="form-group">
                             <button class="btn btn-info" onclick="return Nuevo()" style="width: 100%;">MOSTRAR</button>
                         </div>
-                    </div>
+                    </div>--%>
                 </div>
                 <div class="row">
                     <div class="col-md-12">
@@ -54,7 +54,7 @@
                                                 <%#DataBinder.Eval(Container, "DataItem.Ch_numeroDocPendiente")%>
                                             </ItemTemplate>
                                         </asp:TemplateField>
-                                        <asp:TemplateField HeaderText="Fecha Solicitud" ControlStyle-Font-Italic="true">
+                                        <asp:TemplateField HeaderText="Fecha Solicitud">
                                             <ItemTemplate>
                                                 <%# string.Format("{0:dd/MM/yyyy}", DataBinder.Eval(Container, "DataItem.Dt_fechaDocumento"))%>
                                             </ItemTemplate>
@@ -74,15 +74,11 @@
                                                 <%#DataBinder.Eval(Container, "DataItem.Vc_situacionAtencion")%>
                                             </ItemTemplate>
                                         </asp:TemplateField>
-                                        <asp:TemplateField HeaderText="Act.">
+                                        <asp:TemplateField HeaderText="Atender">
                                             <ItemTemplate>
-                                                <a class="glyphicon glyphicon-pencil" href="#"></a>
+                                                <a class="fa fa-pencil-square-o fa-custom" href="javascript:AtenderDocumento('<%#DataBinder.Eval(Container, "DataItem.In_idDocPendiente")%>')"></a>
                                             </ItemTemplate>
-                                        </asp:TemplateField>
-                                        <asp:TemplateField HeaderText="Eli.">
-                                            <ItemTemplate>
-                                                <a class="glyphicon glyphicon-trash" href="#"></a>
-                                            </ItemTemplate>
+                                            <ItemStyle HorizontalAlign="Center"/>
                                         </asp:TemplateField>
                                     </Columns>
                                 </asp:GridView>
@@ -103,15 +99,13 @@
                                             </th>
                                             <th>Estado
                                             </th>
-                                            <th>Act.
-                                            </th>
-                                            <th>Eli.
+                                            <th>Atender
                                             </th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td colspan="7" style="text-align: center;">
+                                            <td colspan="6" style="text-align: center;">
                                                 <label id="lblMovimientosVacio">
                                                 </label>
                                             </td>

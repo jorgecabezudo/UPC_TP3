@@ -4,7 +4,7 @@
     <script src="frmAtenderMovimientosAlmacen.js"></script>
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
 
-    <div class="row" style="margin-top: 6%; margin-bottom: 4%">
+    <div class="row" style="margin-bottom: 4%">
         <div class="col-md-12">
             <fieldset>
                 <legend>Atender Movimientos de Almacén</legend>
@@ -12,22 +12,22 @@
                     <div class="col-md-3">
                         <div class="form-group">
                             <label>Tipo de Movimiento</label>
-                            <input type="text" class="form-control" placeholder="Tipo de Movimiento" id="txtTipoMovimiento" readonly="true"/>
+                            <asp:TextBox runat="server" CssClass="form-control form-read" ID="txtTipoMovimiento" ReadOnly="true"></asp:TextBox>
                         </div>
                     </div>
                     <div class="col-md-3">
                         <div class="form-group">
                             <label>Estado de Atención</label>
-                            <input type="text" class="form-control" placeholder="Estado de Atención" id="txtSituacionAtencion" readonly="true"/>
+                            <asp:TextBox runat="server" CssClass="form-control form-read" ID="txtSituacionAtencion" ReadOnly="true"></asp:TextBox>
                         </div>
                     </div>
                     <div class="col-md-3">
                         <div class="form-group">
                             <label>Almacén</label>
-                            <input type="text" class="form-control" placeholder="Almacén" id="txtAlmacen" readonly="true"/>
+                            <asp:TextBox runat="server" CssClass="form-control form-read" ID="txtAlmacen" ReadOnly="true"></asp:TextBox>
                         </div>
                     </div>
-                    <div class="col-md-3">
+                    <%--<div class="col-md-3">
                         <div class="form-group">
                             <label>Fecha</label>
                             <input type="text" class="form-control" placeholder="Fecha" id="txtFechaMovimiento" readonly="true"/>
@@ -44,19 +44,19 @@
                             <label>Usuario Solicitante</label>
                             <input type="text" class="form-control" placeholder="Usuario Solicitante" id="txtUsuarioSolicitante" readonly="true"/>
                         </div>
-                    </div>
-                    <div class="col-md-2">
+                    </div>--%>
+                    <div class="col-md-1">
                     </div>
                     <div class="col-md-2">
                         <div class="form-group">
                             <button class="btn btn-primary" onclick="return Guardar()" style="width: 100%;">GUARDAR</button>
                         </div>
                     </div>
-                    <div class="col-md-2">
+                    <%--<div class="col-md-2">
                         <div class="form-group">
                             <button class="btn btn-info" onclick="return Regresar()" style="width: 100%;">SALIR</button>
                         </div>
-                    </div>
+                    </div>--%>
                 </div>
                 <div class="row">
                     <div class="col-md-12">

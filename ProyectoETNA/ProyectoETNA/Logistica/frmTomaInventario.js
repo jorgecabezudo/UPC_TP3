@@ -43,8 +43,6 @@ function changeAlmacen() {
 function ObtenerDetalle(id) {
 
     try {
-
-
         var data =
                 {
                     In_idInventario: id

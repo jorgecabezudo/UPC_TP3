@@ -15,6 +15,7 @@
     <!-- BOOTSTRAP STYLES-->
     <link href="../css/bootstrap.min.css" rel="stylesheet" />
     <link href="../css/style.css" rel="stylesheet" />
+    <link href="../css/font-awesome.min.css" rel="stylesheet" />
     <link href="../css/jquery-ui-1.10.4.custom.css" rel="stylesheet" />
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
 </head>
@@ -30,7 +31,10 @@
                 </div>
                 <div class="col-md-6">
                     <div class="pull-right">
-                        <asp:Button runat="server" CssClass="btn btn-danger btn-xs pull-right" Text="Cerrar Sesion" OnClick="btnCerrarSesion_Click" />
+                        <label class="label-header">Cerrar sesión</label>&nbsp;
+                        <asp:ImageButton runat="server" OnClick="btnCerrarSesion_Click" ImageUrl="~/img/power.png" CssClass="button-img"/>
+                        <%--<asp:ImageButton runat="server" CssClass="fa fa-power-off" OnClick="btnCerrarSesion_Click"/>--%>
+                        <%--<asp:Button runat="server" CssClass="fa fa-power-off" OnClick="btnCerrarSesion_Click" />--%>
                     </div>
                 </div>
             </div>

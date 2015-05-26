@@ -14,9 +14,8 @@
 }
 
 .header-master-black {
-    background-color: #2B2A2A;
+    background-color: #124875;
 	padding-top: 5px;
-	padding-bottom: 5px;
 }
 
 .imagen-user {
@@ -25,10 +24,17 @@
 	border-radius: 4px;
 }
 
+.button-img {
+	width: 22px;
+	height: 22px;
+}
+
 .label-header {
 	color: #fff;
 	font-size: 13px;
 	font-weight: normal;
+	vertical-align: top;
+	margin: 0;
 }
 
 .imagen-logo {
@@ -84,6 +90,10 @@
     font-size: 13px;
     margin-left: 12px;
     display: none;
+}
+
+.fa-custom {
+	font-size: 1.35em !important;
 }
 
 @media(max-width:600px) {
