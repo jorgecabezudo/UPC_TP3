@@ -13,14 +13,28 @@
 	padding-top: 5px;
 }
 
+.header-master-black {
+    background-color: #2B2A2A;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+.imagen-user {
+	width: 20px;
+	height: 20px;
+	border-radius: 4px;
+}
+
 .label-header {
 	color: #fff;
+	font-size: 13px;
+	font-weight: normal;
 }
 
 .imagen-logo {
 	width: 280px;
 	height: auto;
-	padding-left: 5%;
+	display: block;
 	padding-bottom: 5px;
 }
 

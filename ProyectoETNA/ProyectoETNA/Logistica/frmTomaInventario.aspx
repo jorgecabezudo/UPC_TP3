@@ -122,8 +122,8 @@
                         <div class="col-md-4">
                             <div class="form-group">
                                 <input type="hidden" id="txtDetInventario" />
-                                <input type="text" class="form-control" id="txtCantidad" placeholder="Cantidad"/>
-                                <label class="label-validar-m" id="lblCantidad">Ingrese Cantidad</label>
+                                <input type="text" class="form-control" id="txtCantidad" placeholder="Ingrese cantidad"/>
+                                <label class="label-validar-m" id="lblCantidad"></label>
                             </div>
                         </div>
                         <div class="col-md-5">
@@ -131,7 +131,8 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-info" onclick="return Aceptar()">ACEPTAR</button>
+                    <button type="button" class="btn btn-primary" onclick="return Aceptar()" style="width:100px">ACEPTAR</button>&nbsp;
+                    <button type="button" class="btn btn-info" data-dismiss="modal" style="width:100px">CANCELAR</button>
                 </div>
             </div>
             <!-- /.modal-content -->
@@ -151,7 +152,7 @@
                     <div id="mensaje"></div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-info" data-dismiss="modal">ACEPTAR</button>
+                    <button type="button" class="btn btn-info" onclick="return HideMensaje()">ACEPTAR</button>
                 </div>
             </div>
             <!-- /.modal-content -->

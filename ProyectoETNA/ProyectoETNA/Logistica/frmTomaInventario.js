@@ -76,7 +76,7 @@ function ObtenerDetalle(id) {
 function Editar(id) {
 
     $('#txtDetInventario').val(id);
-    $('#txtCantidad').val("1");
+    $('#txtCantidad').val("");
 
     document.getElementById('txtCantidad').style.border = "1px solid #ccc";
     document.getElementById('lblCantidad').style.display = "none";
@@ -187,4 +187,9 @@ function Finalizar() {
     }
 
     return false;
+}
+
+function HideMensaje() {
+    $('#modalMensaje').modal('hide');
+    location.reload();
 }

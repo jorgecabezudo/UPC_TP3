@@ -21,21 +21,22 @@
 <body>
     <div class="container">
         <form id="Form2" runat="server">
-            <div class="row header-master">
+            <div class="row header-master-black">
                 <div class="col-md-6">
-                    <img src="../img/logo.png" class="img-responsive imagen-logo" alt="" />
+                    <img src="../img/user.png" class="imagen-user" alt=""/>&nbsp;
+                    <asp:Label ID="lblNombreUsuario" runat="server" CssClass="label-header"></asp:Label>
+                    <%--<br />
+                        <asp:Label ID="lblFecha" runat="server" CssClass="label-header"></asp:Label>--%>
                 </div>
                 <div class="col-md-6">
                     <div class="pull-right">
-                        <div class="form-group">
-                            <asp:Button runat="server" CssClass="btn btn-info pull-right" Text="Cerrar Sesion" OnClick="btnCerrarSesion_Click" />
-                            <br />
-                            <br />
-                            <asp:Label ID="lblNombreUsuario" runat="server" CssClass="label-header"></asp:Label>
-                            <br />
-                            <asp:Label ID="lblFecha" runat="server" CssClass="label-header"></asp:Label>
-                        </div>
+                        <asp:Button runat="server" CssClass="btn btn-danger btn-xs pull-right" Text="Cerrar Sesion" OnClick="btnCerrarSesion_Click" />
                     </div>
+                </div>
+            </div>
+            <div class="row header-master">
+                <div class="col-md-12">
+                    <img src="../img/logo.png" class="img-responsive imagen-logo center-block" alt="" />
                 </div>
             </div>
             <div class="row">
