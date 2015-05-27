@@ -22,6 +22,8 @@ namespace ETNA.BusinessEntity
         private int in_idAlmacen;
         private string ch_Cod_Usuario;
         private DateTime dt_fechaCreacion;
+        private string vc_areaSolicitante;
+        private int in_idUsuarioSolicitante;
 
         private string vc_tipoDocumentoPendiente;
         private string vc_situacionAtencion;
@@ -154,6 +156,18 @@ namespace ETNA.BusinessEntity
         {
             get { return vc_tipoMovimiento; }
             set { vc_tipoMovimiento = value; }
+        }
+
+        public string Vc_areaSolicitante
+        {
+            get { return vc_areaSolicitante; }
+            set { vc_areaSolicitante = value; }
+        }
+
+        public int In_idUsuarioSolicitante
+        {
+            get { return in_idUsuarioSolicitante; }
+            set { in_idUsuarioSolicitante = value; }
         }
         
         #endregion

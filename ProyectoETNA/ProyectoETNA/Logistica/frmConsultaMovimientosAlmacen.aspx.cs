@@ -81,11 +81,6 @@ namespace ProyectoETNA.Logistica
                 ddlAlmacen.DataTextField = "Vc_descripcionAlmacen";
                 ddlAlmacen.DataBind();
 
-                ddlAlmacenNuevo.DataSource = new UsuarioAlmacenBL().ObtenerAlmacen(cod);
-                ddlAlmacenNuevo.DataValueField = "In_idAlmacen";
-                ddlAlmacenNuevo.DataTextField = "Vc_descripcionAlmacen";
-                ddlAlmacenNuevo.DataBind();
-
                 ddlAlmacen.Items.Insert(0, new ListItem("------ Todos ------", "0"));
             }
             catch (Exception ex)

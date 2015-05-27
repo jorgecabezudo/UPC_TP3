@@ -13,6 +13,15 @@ namespace ProyectoETNA.Logistica {
     public partial class frmAtenderMovimientosAlmacen {
         
         /// <summary>
+        /// Control idDocPendiente.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField idDocPendiente;
+        
+        /// <summary>
         /// Control txtTipoMovimiento.
         /// </summary>
         /// <remarks>
@@ -38,6 +47,33 @@ namespace ProyectoETNA.Logistica {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtAlmacen;
+        
+        /// <summary>
+        /// Control txtFechaMovimiento.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtFechaMovimiento;
+        
+        /// <summary>
+        /// Control txtAreaSolicitante.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtAreaSolicitante;
+        
+        /// <summary>
+        /// Control txtUsuarioSolicitante.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtUsuarioSolicitante;
         
         /// <summary>
         /// Control gvMovimientos.

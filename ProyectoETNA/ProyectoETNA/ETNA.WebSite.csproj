@@ -96,6 +96,7 @@
     <Content Include="Logistica\frmActualizacionInventario.aspx" />
     <Content Include="Logistica\frmActualizacionInventario.js" />
     <Content Include="Logistica\frmAtenderMovimientosAlmacen.aspx" />
+    <Content Include="Logistica\frmAtenderMovimientosAlmacen.js" />
     <Content Include="Logistica\frmConsultaMovimientosAlmacen.aspx" />
     <Content Include="Logistica\frmConsultaMovimientosAlmacen.js" />
     <Content Include="Logistica\frmProgramacionInventario.aspx" />
@@ -103,6 +104,9 @@
     <Content Include="Logistica\frmTomaInventario.aspx" />
     <Content Include="Logistica\frmTomaInventario.js" />
     <Content Include="SQL\SP_DOCUMENTOPENDIENTE_LISTAR.sql" />
+    <Content Include="SQL\SP_EDITAR_DETALLEMOVIMIENTO.sql" />
+    <Content Include="SQL\SP_GUARDAR_DETALLEMOVIMIENTO.sql" />
+    <Content Include="SQL\SP_OBTENER_DETALLEMOVIMIENTOS.sql" />
     <Content Include="SQL\SP_OBTENER_DOCUMENTOPENDIENTE.sql" />
     <Content Include="SQL\Update.sql" />
     <Content Include="Web.config">

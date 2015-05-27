@@ -45,6 +45,7 @@
     <Compile Include="DetalleInventarioDA.cs" />
     <Compile Include="InventarioDA.cs" />
     <Compile Include="MovimientosAlmacenDA.cs" />
+    <Compile Include="MovimientosAlmacenDetalleDA.cs" />
     <Compile Include="ProgramacionInventarioDA.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SqlHelper.cs" />

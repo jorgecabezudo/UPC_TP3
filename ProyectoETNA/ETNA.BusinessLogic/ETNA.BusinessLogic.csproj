@@ -42,6 +42,7 @@
     <Compile Include="DetalleInventarioBL.cs" />
     <Compile Include="InventarioBL.cs" />
     <Compile Include="MovimientosAlmacenBL.cs" />
+    <Compile Include="MovimientosAlmacenDetalleBL.cs" />
     <Compile Include="ProgramacionInventarioBL.cs" />
     <Compile Include="TipoBL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -37,11 +37,6 @@
                             <button class="btn btn-primary" onclick="return Buscar()" style="width: 100%;">BUSCAR</button>
                         </div>
                     </div>
-                    <%--<div class="col-md-2">
-                        <div class="form-group">
-                            <button class="btn btn-info" onclick="return Nuevo()" style="width: 100%;">MOSTRAR</button>
-                        </div>
-                    </div>--%>
                 </div>
                 <div class="row">
                     <div class="col-md-12">
@@ -76,7 +71,7 @@
                                         </asp:TemplateField>
                                         <asp:TemplateField HeaderText="Atender">
                                             <ItemTemplate>
-                                                <a class="fa fa-pencil-square-o fa-custom" href="javascript:AtenderDocumento('<%#DataBinder.Eval(Container, "DataItem.In_idDocPendiente")%>')"></a>
+                                                <a class="fa fa-pencil-square-o fa-custom" href="javascript:AtenderDocumento('<%#DataBinder.Eval(Container, "DataItem.In_idDocPendiente")%>', '<%#DataBinder.Eval(Container, "DataItem.Vc_situacionAtencion")%>')"></a>
                                             </ItemTemplate>
                                             <ItemStyle HorizontalAlign="Center"/>
                                         </asp:TemplateField>
@@ -120,57 +115,23 @@
         </div>
     </div>
 
-    <div class="modal fade" id="modalNuevo" tabindex="-1" role="dialog" aria-labelledby="modalNuevoLabel" aria-hidden="true">
+    <div class="modal fade" id="modalMensaje">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 class="modal-title" id="modalNuevoLabel">NUEVA PROGRAMACIÓN</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">ETNA - MOVIMIENTOS DE ALMACÉN</h4>
                 </div>
                 <div class="modal-body">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label>Código Inventario</label>
-                                <input type="text" class="form-control" id="txtCodidoInventarioNuevo" />
-                            </div>
-                            <div class="form-group">
-                                <label>Fecha Programada</label>
-                                <input type="text" class="form-control" id="txtFechaProgramadaNuevo" />
-                            </div>
-                            <div class="form-group">
-                                <label>Tipo Inventario</label>
-                                <asp:DropDownList ID="ddlTipoInventarioNuevo" CssClass="form-control" runat="server">
-                                </asp:DropDownList>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label>Almacén</label>
-                                <asp:DropDownList ID="ddlAlmacenNuevo" CssClass="form-control" runat="server">
-                                </asp:DropDownList>
-                            </div>
-                            <div class="form-group">
-                                <label>Responsable</label>
-                                <input type="text" class="form-control" id="txtResponsableNuevo" />
-                            </div>
-                            <div class="form-group">
-                                <label>Estado</label>
-                                <input type="text" class="form-control" id="txtEstadoNuevo" />
-                            </div>
-                        </div>
-                    </div>
-                    <hr />
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="pull-right">
-                                <button type="button" class="btn btn-primary" onclick="return Guardar()">REGISTRAR</button>&nbsp;&nbsp;
-                                <button type="button" class="btn btn-info" data-dismiss="modal">CANCELAR</button>
-                            </div>
-                        </div>
-                    </div>
+                    <div id="mensaje"></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-info" data-dismiss="modal">ACEPTAR</button>
                 </div>
             </div>
+            <!-- /.modal-content -->
         </div>
+        <!-- /.modal-dialog -->
     </div>
+    <!-- /.modal -->
 </asp:Content>

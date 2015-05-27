@@ -12,6 +12,7 @@
                     <div class="col-md-3">
                         <div class="form-group">
                             <label>Tipo de Movimiento</label>
+                            <asp:HiddenField runat="server" ID="idDocPendiente" Value="0"></asp:HiddenField>
                             <asp:TextBox runat="server" CssClass="form-control form-read" ID="txtTipoMovimiento" ReadOnly="true"></asp:TextBox>
                         </div>
                     </div>
@@ -27,36 +28,38 @@
                             <asp:TextBox runat="server" CssClass="form-control form-read" ID="txtAlmacen" ReadOnly="true"></asp:TextBox>
                         </div>
                     </div>
-                    <%--<div class="col-md-3">
+                    <div class="col-md-3">
                         <div class="form-group">
                             <label>Fecha</label>
-                            <input type="text" class="form-control" placeholder="Fecha" id="txtFechaMovimiento" readonly="true"/>
+                            <asp:TextBox runat="server" CssClass="form-control form-read" ID="txtFechaMovimiento" ReadOnly="true"></asp:TextBox>
                         </div>
                     </div>
+                </div>
+                <div class="row">
                     <div class="col-md-3">
                         <div class="form-group">
                             <label>Area solicitante</label>
-                            <input type="text" class="form-control" placeholder="Area solicitante" id="txtAreaSolicitante" readonly="true"/>
+                            <asp:TextBox runat="server" CssClass="form-control form-read" ID="txtAreaSolicitante" ReadOnly="true"></asp:TextBox>
                         </div>
                     </div>
                     <div class="col-md-3">
                         <div class="form-group">
                             <label>Usuario Solicitante</label>
-                            <input type="text" class="form-control" placeholder="Usuario Solicitante" id="txtUsuarioSolicitante" readonly="true"/>
+                            <asp:TextBox runat="server" CssClass="form-control form-read" ID="txtUsuarioSolicitante" ReadOnly="true"></asp:TextBox>
                         </div>
-                    </div>--%>
-                    <div class="col-md-1">
+                    </div>
+                    <div class="col-md-2">
                     </div>
                     <div class="col-md-2">
                         <div class="form-group">
                             <button class="btn btn-primary" onclick="return Guardar()" style="width: 100%;">GUARDAR</button>
                         </div>
                     </div>
-                    <%--<div class="col-md-2">
+                    <div class="col-md-2">
                         <div class="form-group">
-                            <button class="btn btn-info" onclick="return Regresar()" style="width: 100%;">SALIR</button>
+                            <button class="btn btn-info" onclick="return Cancelar()" style="width: 100%;">CANCELAR</button>
                         </div>
-                    </div>--%>
+                    </div>
                 </div>
                 <div class="row">
                     <div class="col-md-12">
@@ -66,28 +69,29 @@
                                     <Columns>
                                         <asp:TemplateField HeaderText="Id Producto">
                                             <ItemTemplate>
-                                                <%#DataBinder.Eval(Container, "DataItem.Vc_numeroDocumentoPendiente")%>
+                                                <%#DataBinder.Eval(Container, "DataItem.Vc_codigoProducto")%>
                                             </ItemTemplate>
                                         </asp:TemplateField>
-                                        <asp:TemplateField HeaderText="Descripción" ControlStyle-Font-Italic="true">
+                                        <asp:TemplateField HeaderText="Descripción">
                                             <ItemTemplate>
-                                                <%# string.Format("{0:dd/MM/yyyy}", DataBinder.Eval(Container, "DataItem.Dt_fechaDocumento"))%>
+                                                <%#DataBinder.Eval(Container, "DataItem.Vc_descripcionProducto")%>
                                             </ItemTemplate>
                                         </asp:TemplateField>
-                                        <asp:TemplateField HeaderText="Unidad Medida">
+                                        <asp:TemplateField HeaderText="Cantidad Solicitada">
                                             <ItemTemplate>
-                                                <%#DataBinder.Eval(Container, "DataItem.Vc_tipoMovimiento")%>
-                                            </ItemTemplate>
-                                        </asp:TemplateField>
-                                        <asp:TemplateField HeaderText="Cantidad Pedida">
-                                            <ItemTemplate>
-                                                <%#DataBinder.Eval(Container, "DataItem.Vc_almacen")%>
+                                                <%#DataBinder.Eval(Container, "DataItem.In_cantidadPedida")%>
                                             </ItemTemplate>
                                         </asp:TemplateField>
                                         <asp:TemplateField HeaderText="Cantidad Atendida">
                                             <ItemTemplate>
-                                                <%#DataBinder.Eval(Container, "DataItem.Vc_situacionAtencion")%>
+                                                <%#DataBinder.Eval(Container, "DataItem.In_cantidadAtendida")%>
                                             </ItemTemplate>
+                                        </asp:TemplateField>
+                                        <asp:TemplateField HeaderText="Editar">
+                                            <ItemTemplate>
+                                                <a class="fa fa-pencil fa-custom" href="javascript:Editar('<%#DataBinder.Eval(Container, "DataItem.In_idProducto")%>','<%#DataBinder.Eval(Container, "DataItem.In_cantidadPedida")%>')"></a>
+                                            </ItemTemplate>
+                                            <ItemStyle HorizontalAlign="Center"/>
                                         </asp:TemplateField>
                                     </Columns>
                                 </asp:GridView>
@@ -102,9 +106,7 @@
                                             </th>
                                             <th>Descripción
                                             </th>
-                                            <th>Unidad Medida
-                                            </th>
-                                            <th>Cantidad Pedida
+                                            <th>Cantidad Solicitada
                                             </th>
                                             <th>Cantidad Atendida
                                             </th>
@@ -112,7 +114,7 @@
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td colspan="7" style="text-align: center;">
+                                            <td colspan="4" style="text-align: center;">
                                                 <label id="lblMovimientosVacio">
                                                 </label>
                                             </td>
@@ -126,4 +128,63 @@
             </fieldset>
         </div>
     </div>
+
+    <div class="modal fade" id="modalEdit">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">ETNA - ATENDER MOVIMIENTOS</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-1">
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <label>Cantidad :</label>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <input type="hidden" id="idProducto" />
+                                <input type="hidden" id="cantidadPedida" />
+                                <input type="text" class="form-control" id="txtCantidad" placeholder="Ingrese cantidad"/>
+                                <label class="label-validar-m" id="lblCantidad"></label>
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" onclick="return Aceptar()" style="width:100px">ACEPTAR</button>&nbsp;
+                    <button type="button" class="btn btn-info" data-dismiss="modal" style="width:100px">CANCELAR</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+
+    <div class="modal fade" id="modalMensaje">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">ETNA - ATENDER MOVIMIENTOS</h4>
+                </div>
+                <div class="modal-body">
+                    <div id="mensaje"></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-info" onclick="return HideMensaje()">ACEPTAR</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
 </asp:Content>

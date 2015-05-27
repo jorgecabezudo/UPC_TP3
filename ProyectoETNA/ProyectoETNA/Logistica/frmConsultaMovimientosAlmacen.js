@@ -45,7 +45,13 @@ function Buscar() {
     return false;
 }
 
-function AtenderDocumento(idDocPendiente) {
+function AtenderDocumento(idDocPendiente, situacionAtencion) {
 
-    location.href = 'frmAtenderMovimientosAlmacen.aspx?id=' + idDocPendiente;
+    if (situacionAtencion == 'TOTAL') {
+        document.getElementById('mensaje').innerHTML = 'La situación de atención del documento es "TOTAL"';
+
+        $('#modalMensaje').modal('show');
+    } else {
+        location.href = 'frmAtenderMovimientosAlmacen.aspx?id=' + idDocPendiente;
+    }
 }

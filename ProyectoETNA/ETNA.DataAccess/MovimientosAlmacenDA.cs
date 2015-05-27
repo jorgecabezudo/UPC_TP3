@@ -57,6 +57,8 @@ namespace ETNA.DataAccess
                     objDocumento.Vc_situacionAtencion = dr.GetString(dr.GetOrdinal("situacionAtencion"));
                     objDocumento.Vc_almacen = dr.GetString(dr.GetOrdinal("almacen"));
                     objDocumento.Dt_fechaDocumento = dr.GetDateTime(dr.GetOrdinal("fechaDocumento"));
+                    objDocumento.Vc_areaSolicitante = dr.GetString(dr.GetOrdinal("areaSolicitante"));
+                    objDocumento.In_idUsuarioSolicitante = dr.GetInt32(dr.GetOrdinal("usuarioSolicitante"));
                 }
             }
             return objDocumento;
