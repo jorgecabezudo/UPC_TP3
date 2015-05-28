@@ -48,6 +48,7 @@
     <Compile Include="MovimientosAlmacenDetalleDA.cs" />
     <Compile Include="ProgramacionInventarioDA.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReposicionStockDA.cs" />
     <Compile Include="SqlHelper.cs" />
     <Compile Include="TipoDA.cs" />
     <Compile Include="UsuarioAlmacenDA.cs" />

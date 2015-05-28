@@ -45,6 +45,7 @@
     <Compile Include="MovimientosAlmacenDetalleBE.cs" />
     <Compile Include="PersonaBE.cs" />
     <Compile Include="ProgramacionInventarioBE.cs" />
+    <Compile Include="ReposicionStockBE.cs" />
     <Compile Include="TipoBE.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UsuarioAlmacenBE.cs" />

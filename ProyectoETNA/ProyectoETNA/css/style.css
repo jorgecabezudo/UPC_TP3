@@ -51,6 +51,10 @@
 	border-radius:0;
 }
 
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:focus, .navbar-default .navbar-nav > .open > a:hover {
+	background-color: #124875 !important;
+}
+
 .row-col {
 	margin: 0;
 	padding : 0;

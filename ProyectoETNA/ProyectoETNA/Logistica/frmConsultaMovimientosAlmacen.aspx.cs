@@ -115,11 +115,7 @@ namespace ProyectoETNA.Logistica
             }
             catch (Exception ex)
             {
-                return JsonSerializer.ToJson(new
-                {
-                    resultado = ex.Message,
-                    rows = 0
-                });
+                throw ex;
             }
         }
 

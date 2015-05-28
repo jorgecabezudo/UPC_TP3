@@ -1,6 +1,7 @@
 ﻿var prefix = "#ContentPlaceHolder1_";
 
 window.onload = function () {
+
     Buscar();
 }
 

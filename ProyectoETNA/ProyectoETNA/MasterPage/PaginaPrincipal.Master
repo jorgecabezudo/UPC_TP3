@@ -24,17 +24,13 @@
         <form id="Form2" runat="server">
             <div class="row header-master-black">
                 <div class="col-md-6">
-                    <img src="../img/user.png" class="imagen-user" alt=""/>&nbsp;
+                    <img src="../img/user.png" class="imagen-user" alt="" />&nbsp;
                     <asp:Label ID="lblNombreUsuario" runat="server" CssClass="label-header"></asp:Label>
-                    <%--<br />
-                        <asp:Label ID="lblFecha" runat="server" CssClass="label-header"></asp:Label>--%>
                 </div>
                 <div class="col-md-6">
                     <div class="pull-right">
                         <label class="label-header">Cerrar sesión</label>&nbsp;
-                        <asp:ImageButton runat="server" OnClick="btnCerrarSesion_Click" ImageUrl="~/img/power.png" CssClass="button-img"/>
-                        <%--<asp:ImageButton runat="server" CssClass="fa fa-power-off" OnClick="btnCerrarSesion_Click"/>--%>
-                        <%--<asp:Button runat="server" CssClass="fa fa-power-off" OnClick="btnCerrarSesion_Click" />--%>
+                        <asp:ImageButton runat="server" OnClick="btnCerrarSesion_Click" ImageUrl="~/img/power.png" CssClass="button-img" />
                     </div>
                 </div>
             </div>
@@ -49,7 +45,7 @@
                         <div class="container-fluid">
                             <!-- Brand and toggle get grouped for better mobile display -->
                             <div class="navbar-header">
-                                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
                                     <span class="sr-only">Toggle navigation</span>
                                     <span class="icon-bar"></span>
                                     <span class="icon-bar"></span>
@@ -57,12 +53,18 @@
                                 </button>
                             </div>
                             <!-- Collect the nav links, forms, and other content for toggling -->
-                            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                                <ul class="nav navbar-nav navbar-left text-menu">
-                                    <li style="border-right: 1px solid #EFEFEF"><a href="../Logistica/frmActualizacionInventario.aspx">Actualizacion Inventario</a></li>
-                                    <li style="border-right: 1px solid #EFEFEF"><a href="../Logistica/frmProgramacionInventario.aspx">Programacion Inventario</a></li>
-                                    <li style="border-right: 1px solid #EFEFEF"><a href="../Logistica/frmConsultaMovimientosAlmacen.aspx">Consulta Movimientos Almacen</a></li>
-                                    <li style="border-right: 1px solid #EFEFEF"><a href="../Logistica/frmTomaInventario.aspx">Toma Inventario</a></li>
+                            <div class="navbar-collapse collapse">
+                                <ul class="nav navbar-nav text-menu">
+                                    <li class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">INVENTARIO <span class="caret"></span></a>
+                                        <ul class="dropdown-menu" role="menu">
+                                            <li><a href="../Logistica/frmProgramacionInventario.aspx">Programacion Inventario</a></li>
+                                            <li><a href="../Logistica/frmActualizacionInventario.aspx">Actualizacion Inventario</a></li>
+                                            <li><a href="../Logistica/frmTomaInventario.aspx">Toma Inventario</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="../Logistica/frmConsultaMovimientosAlmacen.aspx">Consulta Movimientos Almacen</a></li>
+                                    <li><a href="../Logistica/frmReposicionStock.aspx">Reposición Stock</a></li>
                                 </ul>
                             </div>
                             <!-- /.navbar-collapse -->
@@ -87,6 +89,7 @@
     <script src="../js/jquery-1.11.3.min.js"></script>
     <script src="../js/jquery-ui-1.10.4.custom.js"></script>
     <script src="../js/bootstrap.min.js"></script>
+    <script src="PaginaPrincipal.js"></script>
 
 </body>
 </html>

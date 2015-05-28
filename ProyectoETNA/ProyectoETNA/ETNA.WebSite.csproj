@@ -101,13 +101,24 @@
     <Content Include="Logistica\frmConsultaMovimientosAlmacen.js" />
     <Content Include="Logistica\frmProgramacionInventario.aspx" />
     <Content Include="Logistica\frmProgramacionInventario.js" />
+    <Content Include="Logistica\frmReposicionStock.aspx" />
+    <Content Include="Logistica\frmReposicionStock.js" />
     <Content Include="Logistica\frmTomaInventario.aspx" />
     <Content Include="Logistica\frmTomaInventario.js" />
+    <Content Include="SQL\documento_sp.sql" />
+    <Content Include="SQL\general_sp.sql" />
+    <Content Include="SQL\integridad.sql" />
+    <Content Include="SQL\inventario_sp.sql" />
+    <Content Include="SQL\script.sql" />
+    <Content Include="SQL\script_data.sql" />
     <Content Include="SQL\SP_DOCUMENTOPENDIENTE_LISTAR.sql" />
     <Content Include="SQL\SP_EDITAR_DETALLEMOVIMIENTO.sql" />
     <Content Include="SQL\SP_GUARDAR_DETALLEMOVIMIENTO.sql" />
     <Content Include="SQL\SP_OBTENER_DETALLEMOVIMIENTOS.sql" />
     <Content Include="SQL\SP_OBTENER_DOCUMENTOPENDIENTE.sql" />
+    <Content Include="SQL\SP_OBTENER_STOCKPRODUCTOS.sql" />
+    <Content Include="SQL\tablas.sql" />
+    <Content Include="SQL\tablas_datos.sql" />
     <Content Include="SQL\Update.sql" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -155,6 +166,13 @@
     </Compile>
     <Compile Include="Logistica\frmProgramacionInventario.aspx.designer.cs">
       <DependentUpon>frmProgramacionInventario.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Logistica\frmReposicionStock.aspx.cs">
+      <DependentUpon>frmReposicionStock.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Logistica\frmReposicionStock.aspx.designer.cs">
+      <DependentUpon>frmReposicionStock.aspx</DependentUpon>
     </Compile>
     <Compile Include="Logistica\frmTomaInventario.aspx.cs">
       <DependentUpon>frmTomaInventario.aspx</DependentUpon>
