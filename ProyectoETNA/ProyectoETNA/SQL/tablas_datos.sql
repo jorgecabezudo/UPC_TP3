@@ -151,10 +151,49 @@ INSERT [dbo].[programacionInventario] ([idProgInventario], [tipoInventario], [fe
 INSERT [dbo].[programacionInventario] ([idProgInventario], [tipoInventario], [fechaProgramada], [frecuencia], [idAlmacen], [idPersona], [idEstadoInventario], [activo], [Cod_Usuario], [fechaCreacion]) VALUES (12, 36, CAST(0x0000A4A100000000 AS DateTime), NULL, 7, 4, 31, 0, N'1         ', CAST(0x0000A4A1002A24D8 AS DateTime))
 INSERT [dbo].[programacionInventario] ([idProgInventario], [tipoInventario], [fechaProgramada], [frecuencia], [idAlmacen], [idPersona], [idEstadoInventario], [activo], [Cod_Usuario], [fechaCreacion]) VALUES (13, 36, CAST(0x0000A4A100000000 AS DateTime), NULL, 7, 4, 31, 1, N'1         ', CAST(0x0000A4A100344395 AS DateTime))
 SET IDENTITY_INSERT [dbo].[programacionInventario] OFF
-INSERT [dbo].[stock] ([idAlmacen], [idProducto], [idLote], [cantidad], [cantidadReservada], [activo], [Cod_Usuario], [fechaCreacion]) VALUES (7, 1, 1, 100, 400, 1, N'1         ', CAST(0x0000A491015DC125 AS DateTime))
-INSERT [dbo].[stock] ([idAlmacen], [idProducto], [idLote], [cantidad], [cantidadReservada], [activo], [Cod_Usuario], [fechaCreacion]) VALUES (7, 2, 2, 200, 500, 1, N'1         ', CAST(0x0000A491015DC125 AS DateTime))
-INSERT [dbo].[stock] ([idAlmacen], [idProducto], [idLote], [cantidad], [cantidadReservada], [activo], [Cod_Usuario], [fechaCreacion]) VALUES (8, 1, 1, 100, 400, 1, N'1         ', CAST(0x0000A491015DC125 AS DateTime))
-INSERT [dbo].[stock] ([idAlmacen], [idProducto], [idLote], [cantidad], [cantidadReservada], [activo], [Cod_Usuario], [fechaCreacion]) VALUES (8, 2, 2, 200, 500, 1, N'1         ', CAST(0x0000A491015DC125 AS DateTime))
+
+BEGIN
+	DECLARE PRODUCTO_cursor CURSOR FOR 
+		SELECT idProducto
+			FROM PRODUCTO
+	DECLARE ALMACEN_cursor CURSOR FOR 
+		SELECT idAlmacen
+			FROM ALMACEN
+	DECLARE @IN_LOOP INTEGER
+	DECLARE @IN_LOOP_ALMACEN INTEGER
+	DECLARE @IN_IDALMACEN INTEGER
+	DECLARE @IN_IDPRODUCTO INTEGER
+	
+	-- Abrir el cursor
+	SET @IN_LOOP_ALMACEN = 0
+	OPEN ALMACEN_CURSOR
+	WHILE @IN_LOOP_ALMACEN = 0
+	BEGIN
+		FETCH NEXT FROM ALMACEN_CURSOR INTO @IN_IDALMACEN
+		SET @IN_LOOP_ALMACEN = @@FETCH_STATUS
+		IF @IN_LOOP_ALMACEN = 0
+		BEGIN
+			OPEN PRODUCTO_cursor
+			SET @IN_LOOP = 0
+			WHILE @IN_LOOP = 0
+			BEGIN
+				FETCH NEXT FROM PRODUCTO_cursor 
+					INTO @IN_idProducto
+				SET @IN_LOOP = @@FETCH_STATUS
+				IF @IN_LOOP = 0
+				BEGIN
+					INSERT INTO STOCK (IDPRODUCTO, IDALMACEN, IDLOTE, CANTIDAD, ACTIVO, COD_USUARIO, FECHACREACION)
+						VALUES (@IN_IDPRODUCTO, @IN_IDALMACEN, 1, ROUND(50+RAND()*100, 0), 1, 1, CURRENT_TIMESTAMP)
+				END
+			END
+			CLOSE PRODUCTO_CURSOR
+		END
+	END
+	CLOSE ALMACEN_CURSOR
+	DEALLOCATE PRODUCTO_CURSOR
+	DEALLOCATE ALMACEN_CURSOR
+END
+
 INSERT [dbo].[Usuario] ([Cod_Usuario], [Pwd_Usuario], [Nom_Usuario], [Tipo_Usuario], [Estado_Usuario], [Filler1]) VALUES (N'1         ', N'1         ', N'admin', N'1', N'1', N'1')
 INSERT [dbo].[Usuario] ([Cod_Usuario], [Pwd_Usuario], [Nom_Usuario], [Tipo_Usuario], [Estado_Usuario], [Filler1]) VALUES (N'2         ', N'2         ', N'Manuel', N'2', N'1', N'1')
 INSERT [dbo].[Usuario] ([Cod_Usuario], [Pwd_Usuario], [Nom_Usuario], [Tipo_Usuario], [Estado_Usuario], [Filler1]) VALUES (N'3         ', N'3         ', N'Jorge Cabezudo', N'A', N'A', N'')
@@ -165,6 +204,7 @@ INSERT [dbo].[usuarioAlmacen] ([idUsuarioAlmacen], [idUsuario], [idAlmacen]) VAL
 INSERT [dbo].[usuarioAlmacen] ([idUsuarioAlmacen], [idUsuario], [idAlmacen]) VALUES (3, N'1         ', 9)
 INSERT [dbo].[usuarioAlmacen] ([idUsuarioAlmacen], [idUsuario], [idAlmacen]) VALUES (4, N'1         ', 10)
 SET IDENTITY_INSERT [dbo].[usuarioAlmacen] OFF
+
 INSERT [dbo].[UsuMenu] ([Cod_Usu], [Cod_Men]) VALUES (N'JORGE     ', N'1     ')
 INSERT [dbo].[UsuMenu] ([Cod_Usu], [Cod_Men]) VALUES (N'JORGE     ', N'2     ')
 INSERT [dbo].[UsuMenu] ([Cod_Usu], [Cod_Men]) VALUES (N'JORGE     ', N'3     ')
