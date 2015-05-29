@@ -48,6 +48,7 @@ namespace ETNA.DataAccess
                     UsuarioObj.In_idPersona = dr.GetInt32(dr.GetOrdinal("idPersona"));
                     UsuarioObj.Vc_nombres = dr.GetString(dr.GetOrdinal("nombres"));
                     UsuarioObj.Vc_apellidoPaterno = dr.GetString(dr.GetOrdinal("apellidoPaterno"));
+                    UsuarioObj.Vc_tipoUsuario = dr.GetString(dr.GetOrdinal("tipoUsuario"));
                     UsuarioObj.Ch_Cod_Usuario = cod;
                 }
             }

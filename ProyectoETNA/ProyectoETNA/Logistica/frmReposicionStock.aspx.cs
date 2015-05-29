@@ -24,6 +24,8 @@ namespace ProyectoETNA.Logistica
         protected override void OnInit(EventArgs e)
         {
             CallbackManager.Register(ObtenerStockProductosEventHandler);
+            CallbackManager.Register(EditarStockProductoEventHandler);
+            CallbackManager.Register(RealizarPedidoEventHandler);
 
             base.OnInit(e);
         }
@@ -77,6 +79,54 @@ namespace ProyectoETNA.Logistica
             {
                 throw ex;
             }
+        }
+
+        public string EditarStockProductoEventHandler(string arg)
+        {
+
+            string result = string.Empty;
+            try
+            {
+                Hashtable data = JsonSerializer.FromJson<Hashtable>(arg);
+                ReposicionStockBE oBe = new ReposicionStockBE()
+                {
+                    In_idAlmacen = int.Parse(data["IN_almacen"].ToString()),
+                    In_idProducto = int.Parse(data["IN_idProducto"].ToString()),
+                    In_cantidadReservada = int.Parse(data["IN_cantidad"].ToString())
+                };
+
+                result = new ReposicionStockBL().EditarStockProducto(oBe).ToString();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+            return result.ToString();
+        }
+
+        public string RealizarPedidoEventHandler(string arg)
+        {
+            string result = string.Empty;
+            try
+            {
+                Hashtable data = JsonSerializer.FromJson<Hashtable>(arg);
+                ReposicionStockBE oBe = new ReposicionStockBE()
+                {
+                    Vc_codigoProducto = data["VC_codigo"].ToString(),
+                    Vc_descripcionProducto = data["VC_nombre"].ToString(),
+                    In_idAlmacen = int.Parse(data["IN_almacen"].ToString())
+                };
+
+                result = new ReposicionStockBL().RealizarPedido(oBe).ToString();
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+            return result.ToString();
         }
     }
 }

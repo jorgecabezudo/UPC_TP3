@@ -20,5 +20,15 @@ namespace ETNA.BusinessLogic
         {
             return objStock.ObtenerStockProductos(oBe);
         }
+
+        public int EditarStockProducto(ReposicionStockBE oBe)
+        {
+            return objStock.EditarStockProducto(oBe);
+        }
+
+        public int RealizarPedido(ReposicionStockBE oBe)
+        {
+            return objStock.RealizarPedido(oBe);
+        }
     }
 }

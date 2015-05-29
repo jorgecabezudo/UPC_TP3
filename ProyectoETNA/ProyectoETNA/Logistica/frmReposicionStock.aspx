@@ -61,9 +61,9 @@
                                                 <%#DataBinder.Eval(Container, "DataItem.In_cantidadReservada")%>
                                             </ItemTemplate>
                                         </asp:TemplateField>
-                                        <asp:TemplateField HeaderText="Selección">
+                                        <asp:TemplateField HeaderText="Editar">
                                             <ItemTemplate>
-                                                <a class="fa fa-pencil-square-o fa-custom" href="#"></a>
+                                                <a class="fa fa-pencil fa-custom" href="javascript:Editar('<%#DataBinder.Eval(Container, "DataItem.In_idProducto")%>')"></a>
                                             </ItemTemplate>
                                             <ItemStyle HorizontalAlign="Center"/>
                                         </asp:TemplateField>
@@ -102,13 +102,51 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="form-group">
-                            <button type="button" id="btnPedido" class="btn btn-info pull-right">REALIZAR PEDIDO</button>
+                            <button type="button" class="btn btn-info pull-right" onclick="return RealizarPedido()">REALIZAR PEDIDO</button>
                         </div>
                     </div>
                 </div>
             </fieldset>
         </div>
     </div>
+
+    <div class="modal fade" id="modalEdit">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">ETNA - REPOSICION DE STOCK</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-1">
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <label>Cantidad :</label>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <input type="hidden" id="idProducto" />
+                                <input type="text" class="form-control" id="txtCantidad" placeholder="Ingrese cantidad"/>
+                                <label class="label-validar-m" id="lblCantidad"></label>
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" onclick="return Aceptar()" style="width:100px">ACEPTAR</button>&nbsp;
+                    <button type="button" class="btn btn-info" data-dismiss="modal" style="width:100px">CANCELAR</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
 
     <div class="modal fade" id="modalMensaje">
         <div class="modal-dialog">
@@ -121,7 +159,7 @@
                     <div id="mensaje"></div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-info" data-dismiss="modal">ACEPTAR</button>
+                    <button type="button" class="btn btn-info" onclick="return HideMensaje()">ACEPTAR</button>
                 </div>
             </div>
             <!-- /.modal-content -->

@@ -111,14 +111,19 @@
     <Content Include="SQL\inventario_sp.sql" />
     <Content Include="SQL\script.sql" />
     <Content Include="SQL\script_data.sql" />
+    <Content Include="SQL\script_datos_stock_producto.sql" />
+    <Content Include="SQL\script_stock_producto.sql" />
+    <Content Include="SQL\SP_AJUSTAR_INVENTARIO.sql" />
     <Content Include="SQL\SP_DOCUMENTOPENDIENTE_LISTAR.sql" />
     <Content Include="SQL\SP_EDITAR_DETALLEMOVIMIENTO.sql" />
     <Content Include="SQL\SP_GUARDAR_DETALLEMOVIMIENTO.sql" />
     <Content Include="SQL\SP_OBTENER_DETALLEMOVIMIENTOS.sql" />
     <Content Include="SQL\SP_OBTENER_DOCUMENTOPENDIENTE.sql" />
     <Content Include="SQL\SP_OBTENER_STOCKPRODUCTOS.sql" />
+    <Content Include="SQL\stored_procedures_2905.sql" />
     <Content Include="SQL\tablas.sql" />
     <Content Include="SQL\tablas_datos.sql" />
+    <Content Include="SQL\tablas_datos_2905.sql" />
     <Content Include="SQL\Update.sql" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>

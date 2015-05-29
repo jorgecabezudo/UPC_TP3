@@ -31,6 +31,8 @@ namespace ETNA.BusinessEntity
         private DateTime dt_fechaCreacion;
         private DateTime dt_fechaModificacion;
 
+        private string vc_tipoUsuario;
+
         #endregion
 
         #region Constructors
@@ -161,6 +163,12 @@ namespace ETNA.BusinessEntity
         {
             get { return dt_fechaModificacion; }
             set { dt_fechaModificacion = value; }
+        }
+
+        public string Vc_tipoUsuario
+        {
+            get { return vc_tipoUsuario; }
+            set { vc_tipoUsuario = value; }
         }
 
         #endregion

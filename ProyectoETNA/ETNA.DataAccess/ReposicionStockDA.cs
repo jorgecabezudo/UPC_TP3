@@ -35,5 +35,40 @@ namespace ETNA.DataAccess
             }
             return listStock;
         }
+
+        public int EditarStockProducto(ReposicionStockBE oBe)
+        {
+            try
+            {
+                int rpta = 0;
+                Dictionary<string, object> parameter = new Dictionary<string, object>();
+                parameter.Add("@IN_IDALMACEN", oBe.In_idAlmacen);
+                parameter.Add("@IN_IDPRODUCTO", oBe.In_idProducto);
+                parameter.Add("@IN_CANTIDADRESERVADA", oBe.In_cantidadReservada);
+                rpta = int.Parse(SqlHelper.Instance.ExecuteScalar("SP_EDITAR_STOCKPRODUCTO", parameter).ToString());
+                return rpta;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public int RealizarPedido(ReposicionStockBE oBe)
+        {
+            try
+            {
+                int rpta = 0;
+                Dictionary<string, object> parameter = new Dictionary<string, object>();
+                parameter.Add("@VC_COD_DESCRIP_PRODUCTO", oBe.Vc_codigoProducto + oBe.Vc_descripcionProducto);
+                parameter.Add("@IN_IDALMACEN", oBe.In_idAlmacen);
+                rpta = int.Parse(SqlHelper.Instance.ExecuteScalar("SP_REALIZARPEDIDO", parameter).ToString());
+                return rpta;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

@@ -26,9 +26,7 @@ namespace ProyectoETNA.MasterPage
                 if (Session["LogUsuario"] != null)
                 {
                     PersonaBE UsuarioObj = Session["LogUsuario"] as PersonaBE;
-                    lblNombreUsuario.Text = "Bienvenido(a) :  " + UsuarioObj.Vc_nombres + " " + UsuarioObj.Vc_apellidoPaterno;
-                    /*DateTime fechaHoy = DateTime.Now;
-                    lblFecha.Text = "Fecha: " + fechaHoy.ToString("d");*/
+                    lblNombreUsuario.Text = "Bienvenido(a) :  " + UsuarioObj.Vc_nombres + " " + UsuarioObj.Vc_apellidoPaterno + " - " + UsuarioObj.Vc_tipoUsuario;
                 }
                 else
                 {
