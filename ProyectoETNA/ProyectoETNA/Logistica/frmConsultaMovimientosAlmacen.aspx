@@ -6,7 +6,7 @@
     <div class="row" style="margin-bottom: 4%">
         <div class="col-md-12">
             <fieldset>
-                <legend>Generar Movimientos de Almacén</legend>
+                <legend>Movimientos de Almacén</legend>
                 <div class="row">
                     <div class="col-md-3">
                         <div class="form-group">

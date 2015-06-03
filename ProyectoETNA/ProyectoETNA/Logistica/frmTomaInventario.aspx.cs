@@ -130,21 +130,14 @@ namespace ProyectoETNA.Logistica
             try
             {
                 Hashtable data = JsonSerializer.FromJson<Hashtable>(arg);
-                /*MR-20150523 - INICIO*/
-                if (data["IN_cantidad"].ToString() != "")
+                DetalleInventarioBE oBe = new DetalleInventarioBE()
                 {
-                    /*MR-20150523 - FIN*/
-                    DetalleInventarioBE oBe = new DetalleInventarioBE()
-                    {
-                        In_idDetalleInventario = int.Parse(data["IN_idDetalleInventario"].ToString()),
-                        In_cantidad = int.Parse(data["IN_cantidad"].ToString())
-                    };
+                    In_idDetalleInventario = int.Parse(data["IN_idDetalleInventario"].ToString()),
+                    In_cantidad = int.Parse(data["IN_cantidad"].ToString())
+                };
 
-                    result = new DetalleInventarioBL().EditarTomaInventario(oBe).ToString();
-                }
-                /*MR-20150523 - INICIO*/
-                else { result = ""; }
-                /*MR-20150523 - FIN*/
+                result = new DetalleInventarioBL().EditarTomaInventario(oBe).ToString();
+                
             }
             catch (Exception ex)
             {

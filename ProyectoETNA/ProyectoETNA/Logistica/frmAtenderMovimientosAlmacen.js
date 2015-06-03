@@ -50,6 +50,15 @@ function Editar(idProducto, cantidad) {
     $('#modalEdit').modal('show');
 }
 
+function Entero(numero) {
+    if (numero % 1 == 0) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+
 function ValidarCantidad() {
 
     var txtCantidad = document.getElementById('txtCantidad');
@@ -73,7 +82,16 @@ function ValidarCantidad() {
             return true;
         } else {
 
-            if (txtCantidad.value < 1) {
+            if (!Entero(txtCantidad.value)) {
+
+                lblCantidad.innerHTML = "Ingrese cantidad entera";
+                txtCantidad.style.border = "1px solid red";
+                lblCantidad.style.display = "block";
+
+                return true;
+            }
+
+            if (parseInt(txtCantidad.value) < 1) {
 
                 lblCantidad.innerHTML = "Ingrese cantidad mayor a 0";
                 txtCantidad.style.border = "1px solid red";
@@ -82,7 +100,7 @@ function ValidarCantidad() {
                 return true;
             } else {
 
-                if (txtCantidad.value > cantidadPedida.value) {
+                if (parseInt(txtCantidad.value) > parseInt(cantidadPedida.value)) {
 
                     lblCantidad.innerHTML = "Ingrese cantidad menor o igual a cantidad pedida";
                     txtCantidad.style.border = "1px solid red";

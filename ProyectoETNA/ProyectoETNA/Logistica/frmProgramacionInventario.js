@@ -9,24 +9,32 @@ function Nuevo() {
     document.getElementById('txtFechaProgramadaNuevo').value = "";
     /*MR-20150523 - FIN*/
     $("#txtFechaProgramadaNuevo").datepicker({
-        defaultDate: "+1w"
+        defaultDate: "+1w",
+        minDate: "0D"
     });
     $('#modalNuevo').modal('show');
     return false;
 }
 
-function Editar(idProgInventario, fechaProgramada, idTipoInventario, idAlmacen) {
+function Editar(idProgInventario, fechaProgramada, idTipoInventario, idAlmacen, estado) {
 
-    $("#txtFechaProgramadaEdit").datepicker({
-        defaultDate: "+1w"
-    });
+    if (estado == 'PENDIENTE') {
+        $("#txtFechaProgramadaEdit").datepicker({
+            defaultDate: "+1w",
+            minDate: "0D"
+        });
 
-    document.getElementById('idProgInventario').value = idProgInventario;
-    document.getElementById('txtFechaProgramadaEdit').value = fechaProgramada;
-    $(prefix + 'ddlTipoInventarioEdit').val(idTipoInventario);
-    $(prefix + 'ddlAlmacenEdit').val(idAlmacen);
+        document.getElementById('idProgInventario').value = idProgInventario;
+        document.getElementById('txtFechaProgramadaEdit').value = fechaProgramada;
+        $(prefix + 'ddlTipoInventarioEdit').val(idTipoInventario);
+        $(prefix + 'ddlAlmacenEdit').val(idAlmacen);
 
-    $('#modalEdit').modal('show');
+        $('#modalEdit').modal('show');
+    } else {
+
+        document.getElementById('mensaje').innerHTML = 'El estado no se encuentre "PENDIENTE"';
+        $('#modalMensaje').modal('show');
+    }
 }
 
 function Buscar() {
@@ -88,18 +96,16 @@ function Registrar() {
 
                 Buscar();
             }
-                /*MR-20150523 - INICIO*/
             else if (result == 2) {
-                document.getElementById('mensaje').innerHTML = "Ya tiene asignado un Inventario de este tipo en la fecha seleccionada";
+                document.getElementById('mensaje').innerHTML = "Programación de inventario existente";
                 $('#modalNuevo').modal('hide');
                 $('#modalMensaje').modal('show');
             }
             else if (result == 3) {
-                document.getElementById('mensaje').innerHTML = "Ingrese la fecha para la Programación de Inventario";
+                document.getElementById('mensaje').innerHTML = "Ingrese la fecha para la programación de inventario";
                 $('#modalNuevo').modal('hide');
                 $('#modalMensaje').modal('show');
             }
-                /*MR-20150523 - FIN*/
             else {
                 document.getElementById('mensaje').innerHTML = "Error al insertar programación";
                 $('#modalNuevo').modal('hide');
@@ -140,21 +146,10 @@ function Actualizar() {
                 $('#modalEdit').modal('hide');
 
                 Buscar();
-            }
-                /*MR-20150523 - INICIO*/
-            else if (result == 2) {
-                document.getElementById('mensaje').innerHTML = "Ya tiene asignado un Inventario de este tipo en la fecha seleccionada";
+            } else {
+                document.getElementById('mensaje').innerHTML = "Programación de inventario existente";
 
                 $('#modalMensaje').modal('show');
-                $('#modalEdit').modal('hide');
-            }
-                /*MR-20150523 - FIN*/
-
-            else {
-                document.getElementById('mensaje').innerHTML = "Error al actualizar programación";
-
-                $('#modalMensaje').modal('show');
-
                 $('#modalEdit').modal('hide');
             }
         });
@@ -164,31 +159,37 @@ function Actualizar() {
     }
 }
 
-function Eliminar(idProgInventario) {
+function Eliminar(idProgInventario, estado) {
 
-    try {
+    if (estado == 'PENDIENTE') {
+        try {
 
-        var data =
-                {
-                    IN_idProgInventario: idProgInventario
+            var data =
+                    {
+                        IN_idProgInventario: idProgInventario
+                    }
+
+            var arg = Sys.Serialization.JavaScriptSerializer.serialize(data);
+            EliminarInventarioProgramadoEventHandler(arg, function (result, context) {
+                if (result == 0) {
+                    document.getElementById('mensaje').innerHTML = "Programación eliminada correctamente";
+
+                    $('#modalMensaje').modal('show');
+
+                    Buscar();
+                } else {
+                    document.getElementById('mensaje').innerHTML = "Error al eliminar programación";
+
+                    $('#modalMensaje').modal('show');
                 }
+            });
 
-        var arg = Sys.Serialization.JavaScriptSerializer.serialize(data);
-        EliminarInventarioProgramadoEventHandler(arg, function (result, context) {
-            if (result == 0) {
-                document.getElementById('mensaje').innerHTML = "Programación eliminada correctamente";
+        } catch (e) {
+            throw e;
+        }
+    } else {
 
-                $('#modalMensaje').modal('show');
-
-                Buscar();
-            } else {
-                document.getElementById('mensaje').innerHTML = "Error al eliminar programación";
-
-                $('#modalMensaje').modal('show');
-            }
-        });
-
-    } catch (e) {
-        throw e;
+        document.getElementById('mensaje').innerHTML = 'El estado no se encuentre "PENDIENTE"';
+        $('#modalMensaje').modal('show');
     }
 }

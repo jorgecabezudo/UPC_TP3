@@ -87,12 +87,14 @@
                                                 <a class="glyphicon glyphicon-pencil" href="javascript:Editar('<%#DataBinder.Eval(Container, "DataItem.In_idProgInventario")%>',
                                                                                                               '<%# string.Format("{0:dd/MM/yyyy}", DataBinder.Eval(Container, "DataItem.Dt_fechaProgramada"))%>', 
                                                                                                               '<%#DataBinder.Eval(Container, "DataItem.In_tipoInventario")%>',
-                                                                                                              '<%#DataBinder.Eval(Container, "DataItem.In_idAlmacen")%>')"></a>
+                                                                                                              '<%#DataBinder.Eval(Container, "DataItem.In_idAlmacen")%>',
+                                                                                                              '<%#DataBinder.Eval(Container, "DataItem.Vc_estado")%>')"></a>
                                             </ItemTemplate>
                                         </asp:TemplateField>
                                         <asp:TemplateField HeaderText="Eli.">
                                             <ItemTemplate>
-                                                <a class="glyphicon glyphicon-trash" href="javascript:Eliminar('<%#DataBinder.Eval(Container, "DataItem.In_idProgInventario")%>')"></a>
+                                                <a class="glyphicon glyphicon-trash" href="javascript:Eliminar('<%#DataBinder.Eval(Container, "DataItem.In_idProgInventario")%>',
+                                                                                                               '<%#DataBinder.Eval(Container, "DataItem.Vc_estado")%>')"></a>
                                             </ItemTemplate>
                                         </asp:TemplateField>
                                     </Columns>
@@ -162,7 +164,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 class="modal-title" id="modalNuevoLabel">NUEVA PROGRAMACIÓN</h4>
+                    <h4 class="modal-title" id="modalNuevoLabel">ETNA - NUEVA PROGRAMACIÓN</h4>
                 </div>
                 <div class="modal-body">
                     <div class="row">

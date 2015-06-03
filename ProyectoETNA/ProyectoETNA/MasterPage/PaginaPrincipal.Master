@@ -21,7 +21,7 @@
 </head>
 <body>
     <div class="container">
-        <form id="Form2" runat="server">
+        <form id="Form2" runat="server" onkeypress="return anular(event)">
             <div class="row header-master-black">
                 <div class="col-md-6">
                     <img src="../img/user.png" class="imagen-user" alt="" />&nbsp;
@@ -30,7 +30,7 @@
                 <div class="col-md-6">
                     <div class="pull-right">
                         <label class="label-header">Cerrar sesión</label>&nbsp;
-                        <asp:ImageButton runat="server" OnClick="btnCerrarSesion_Click" ImageUrl="~/img/power.png" CssClass="button-img" />
+                        <asp:ImageButton runat="server" OnClick="btnCerrarSesion_Click" ImageUrl="~/img/power.png" CssClass="button-img" ID="btnCerrarSesion" />
                     </div>
                 </div>
             </div>
@@ -63,7 +63,7 @@
                                             <li><a href="../Logistica/frmTomaInventario.aspx">Toma Inventario</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="../Logistica/frmConsultaMovimientosAlmacen.aspx">Consulta Movimientos Almacen</a></li>
+                                    <li><a href="../Logistica/frmConsultaMovimientosAlmacen.aspx">Movimientos de Almacén</a></li>
                                     <li><a href="../Logistica/frmReposicionStock.aspx">Reposición Stock</a></li>
                                 </ul>
                             </div>
@@ -89,6 +89,12 @@
     <script src="../js/jquery-1.11.3.min.js"></script>
     <script src="../js/jquery-ui-1.10.4.custom.js"></script>
     <script src="../js/bootstrap.min.js"></script>
+    <script>
+        function anular(e) {
+            tecla = (document.all) ? e.keyCode : e.which;
+            return (tecla != 13);
+        }
+    </script>
 
 </body>
 </html>
