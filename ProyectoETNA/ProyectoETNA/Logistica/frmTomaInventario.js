@@ -183,10 +183,16 @@ function Finalizar() {
             if (result == 0) {
                 document.getElementById('mensaje').innerHTML = "Toma de inventario finalizada correctamente";
 
+                document.getElementById('btnAceptarError').style.display = "none";
+                document.getElementById('btnAceptarOk').style.display = "block";
+
                 $('#modalMensaje').modal('show');
 
             } else {
                 document.getElementById('mensaje').innerHTML = "Error al finalizar toma de inventario";
+
+                document.getElementById('btnAceptarOk').style.display = "none";
+                document.getElementById('btnAceptarError').style.display = "block";
 
                 $('#modalMensaje').modal('show');
             }

@@ -152,7 +152,8 @@
                     <div id="mensaje"></div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-info" onclick="return HideMensaje()">ACEPTAR</button>
+                    <button type="button" class="btn btn-info pull-right" id="btnAceptarOk" onclick="return HideMensaje()" style="display: none">ACEPTAR</button>
+                    <button type="button" class="btn btn-info pull-right" id="btnAceptarError" data-dismiss="modal" style="display: none">ACEPTAR</button>
                 </div>
             </div>
             <!-- /.modal-content -->

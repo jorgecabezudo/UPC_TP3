@@ -122,6 +122,9 @@
     <Content Include="Logistica\frmTomaInventario.js" />
     <Content Include="SQL\datos.sql" />
     <Content Include="SQL\procedimientos.sql" />
+    <Content Include="SQL\SP_ACTUALIZAR_INVENTARIO_PROGRAMADO.sql" />
+    <Content Include="SQL\SP_AJUSTAR_INVENTARIO.sql" />
+    <Content Include="SQL\SP_INSERTAR_INVENTARIO_PROGRAMADO.sql" />
     <Content Include="SQL\tablas.sql" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
